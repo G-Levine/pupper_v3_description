@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
+  <robot name="pupper_v3">
+
+    <link name="base_link">
+      <inertial>
+        <origin xyz="0.04 0 0.025" rpy="0 0 0"/>
+        <mass value="1.0"/>
+        <inertia ixx="0.00236" ixy="0" ixz="0" iyy="0.0045" iyz="0" izz="0.004"/>
+      </inertial>
+      <visual name="pupperv3_export">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="ProtoAssembly-MG v25.004">
+        <origin xyz="0.02009 0 0.03177" rpy="1.5708 0 0"/>
+        <geometry>
+          <box size="0.26419 0.13252 0.115"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_l_1">
+      <inertial>
+        <origin xyz="0.00263 8e-05 0.03455" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.011">
+        <origin xyz="0.075 0 -0.05" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.011.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cylinder.007">
+        <origin xyz="0 0 0.034" rpy="-3.14159 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_l_2">
+      <inertial>
+        <origin xyz="0.0461 0.00255 -0.05754" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.006">
+        <origin xyz="0 -0.084 0.075" rpy="0 -1.5708 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.006.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cube.006">
+        <origin xyz="0.01721 -1e-05 -0.04981" rpy="0 -2.26893 0"/>
+        <geometry>
+          <box size="0.07978 0.03123 0.02896"/>
+        </geometry>
+      </collision>
+      <collision name="Cylinder.003">
+        <origin xyz="0.0515 0 -0.07" rpy="1.5708 -1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_l_3">
+      <inertial>
+        <origin xyz="-0.08114 0.0073 -0.01746" rpy="0 0 0"/>
+        <mass value="0.045"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0011"/>
+      </inertial>
+      <visual name="pupperv3_export.004">
+        <origin xyz="-0.07797 -0.13266 0.084" rpy="-1.5708 0 -2.44346"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.004.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(White)"/>
+      </visual>
+      <collision name="Cube.007">
+        <origin xyz="-0.04385 0.0046 -0.01846" rpy="-1.5708 0 -3.03542"/>
+        <geometry>
+          <box size="0.06966 0.01583 0.01448"/>
+        </geometry>
+      </collision>
+      <collision name="ProtoAssembly-MGv25.017">
+        <origin xyz="-0.08746 0.0107 -0.0189" rpy="0 3.14159 0"/>
+        <geometry>
+          <sphere radius="0.01984"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_r_1">
+      <inertial>
+        <origin xyz="0.00272 -1e-05 0.03409" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.010">
+        <origin xyz="0.075 0 -0.05" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.010.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cylinder.005">
+        <origin xyz="0 0 0.034" rpy="0 -1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_r_2">
+      <inertial>
+        <origin xyz="-0.04555 -0.00233 0.05745" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.007">
+        <origin xyz="0 0.084 -0.075" rpy="0 1.5708 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.007.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cube.002">
+        <origin xyz="-0.01721 1e-05 0.04981" rpy="0 0.87266 0"/>
+        <geometry>
+          <box size="0.07978 0.03123 0.02896"/>
+        </geometry>
+      </collision>
+      <collision name="Cylinder.001">
+        <origin xyz="-0.0515 0 0.07" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_back_r_3">
+      <inertial>
+        <origin xyz="0.08114 -0.0073 0.01746" rpy="0 0 0"/>
+        <mass value="0.045"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0011"/>
+      </inertial>
+      <visual name="pupperv3_export.002">
+        <origin xyz="0.07797 0.13266 -0.084" rpy="-1.5708 0 0.69813"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.002.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(White)"/>
+      </visual>
+      <collision name="Cube.003">
+        <origin xyz="0.04385 -0.0046 0.01846" rpy="-1.5708 0 0.10617"/>
+        <geometry>
+          <box size="0.06966 0.01583 0.01448"/>
+        </geometry>
+      </collision>
+      <collision name="ProtoAssembly-MGv25.009">
+        <origin xyz="0.08746 -0.0107 0.0189" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="0.01984"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_l_1">
+      <inertial>
+        <origin xyz="0.00263 8e-05 0.03455" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.012">
+        <origin xyz="-0.075 0 -0.05" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.012.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cylinder.006">
+        <origin xyz="0 0 0.034" rpy="-3.14159 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_l_2">
+      <inertial>
+        <origin xyz="0.0461 0.00255 -0.05754" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0003" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.005">
+        <origin xyz="0 -0.084 -0.075" rpy="0 -1.5708 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.005.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Steel_-_Satin"/>
+      </visual>
+      <collision name="Cube.004">
+        <origin xyz="0.01721 -1e-05 -0.04981" rpy="0 -2.26893 0"/>
+        <geometry>
+          <box size="0.07978 0.03123 0.02896"/>
+        </geometry>
+      </collision>
+      <collision name="Cylinder.002">
+        <origin xyz="0.0515 0 -0.07" rpy="1.5708 -1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_l_3">
+      <inertial>
+        <origin xyz="-0.08114 0.0073 -0.01746" rpy="0 0 0"/>
+        <mass value="0.045"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0011"/>
+      </inertial>
+      <visual name="pupperv3_export.003">
+        <origin xyz="0.03694 -0.03624 0.084" rpy="-1.5708 0 -2.44346"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.003.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Polyurethane"/>
+      </visual>
+      <collision name="Cube.005">
+        <origin xyz="-0.04385 0.0046 -0.01846" rpy="-1.5708 0 -3.03542"/>
+        <geometry>
+          <box size="0.06966 0.01583 0.01448"/>
+        </geometry>
+      </collision>
+      <collision name="ProtoAssembly-MGv25.013">
+        <origin xyz="-0.08746 0.0107 -0.0189" rpy="0 3.14159 0"/>
+        <geometry>
+          <sphere radius="0.01984"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_r_1">
+      <inertial>
+        <origin xyz="0.00272 -1e-05 0.03409" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.009">
+        <origin xyz="-0.075 0 -0.05" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.009.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cylinder.004">
+        <origin xyz="0 0 0.034" rpy="0 -1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_r_2">
+      <inertial>
+        <origin xyz="-0.04555 -0.00233 0.05745" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0" ixz="0" iyy="0.0002" iyz="0" izz="0.0012"/>
+      </inertial>
+      <visual name="pupperv3_export.008">
+        <origin xyz="0 0.084 0.075" rpy="0 1.5708 0"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.008.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="Plastic_-_Matte_(Gray)"/>
+      </visual>
+      <collision name="Cube">
+        <origin xyz="-0.01721 1e-05 0.04981" rpy="0 0.87266 0"/>
+        <geometry>
+          <box size="0.07978 0.03123 0.02896"/>
+        </geometry>
+      </collision>
+      <collision name="Cylinder">
+        <origin xyz="-0.0515 0 0.07" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <cylinder radius="0.0265" length="0.025"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="leg_front_r_3">
+      <inertial>
+        <origin xyz="0.08114 -0.0073 0.01746" rpy="0 0 0"/>
+        <mass value="0.045"/>
+        <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0011"/>
+      </inertial>
+      <visual name="pupperv3_export.001">
+        <origin xyz="-0.03694 0.03624 -0.084" rpy="-1.5708 0 0.69813"/>
+        <geometry>
+          <mesh filename="../meshes/dae/pupperv3_export.001.dae" scale="1.0 1.0 1.0"/>
+        </geometry>
+        <material name="ABS_(White)"/>
+      </visual>
+      <collision name="Cube.001">
+        <origin xyz="0.04385 -0.0046 0.01846" rpy="-1.5708 0 0.10617"/>
+        <geometry>
+          <box size="0.06966 0.01583 0.01448"/>
+        </geometry>
+      </collision>
+      <collision name="ProtoAssembly-MGv25.005">
+        <origin xyz="0.08746 -0.0107 0.0189" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="0.01984"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="leg_back_l_1" type="revolute">
+      <origin xyz="-0.075 0.05 0" rpy="-1.5708 0 0"/>
+      <parent link="base_link"/>
+      <child link="leg_back_l_1"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-2.0944" upper="1.22173" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_back_l_2" type="revolute">
+      <origin xyz="0 0 0.034" rpy="1.5708 0 1.5708"/>
+      <parent link="leg_back_l_1"/>
+      <child link="leg_back_l_2"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="-0.87266" upper="0.5236" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_back_l_3" type="revolute">
+      <origin xyz="0.0515 0 -0.07" rpy="1.5708 2.26893 0"/>
+      <parent link="leg_back_l_2"/>
+      <child link="leg_back_l_3"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="-0.82903" upper="3.05433" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_back_r_1" type="revolute">
+      <origin xyz="-0.075 -0.05 0" rpy="1.5708 0 0"/>
+      <parent link="base_link"/>
+      <child link="leg_back_r_1"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-1.22173" upper="2.0944" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_back_r_2" type="revolute">
+      <origin xyz="0 0 0.034" rpy="-1.5708 0 1.5708"/>
+      <parent link="leg_back_r_1"/>
+      <child link="leg_back_r_2"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-0.5236" upper="0.87266" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_back_r_3" type="revolute">
+      <origin xyz="-0.0515 0 0.07" rpy="1.5708 2.26893 0"/>
+      <parent link="leg_back_r_2"/>
+      <child link="leg_back_r_3"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.05433" upper="0.82903" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_l_1" type="revolute">
+      <origin xyz="0.075 0.05 0" rpy="-1.5708 0 0"/>
+      <parent link="base_link"/>
+      <child link="leg_front_l_1"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-2.0944" upper="1.22173" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_l_2" type="revolute">
+      <origin xyz="0 0 0.034" rpy="1.5708 0 1.5708"/>
+      <parent link="leg_front_l_1"/>
+      <child link="leg_front_l_2"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="-0.87266" upper="0.5236" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_l_3" type="revolute">
+      <origin xyz="0.0515 0 -0.07" rpy="1.5708 2.26893 0"/>
+      <parent link="leg_front_l_2"/>
+      <child link="leg_front_l_3"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="-0.82903" upper="3.05433" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_r_1" type="revolute">
+      <origin xyz="0.075 -0.05 0" rpy="1.5708 0 0"/>
+      <parent link="base_link"/>
+      <child link="leg_front_r_1"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-1.22173" upper="2.0944" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_r_2" type="revolute">
+      <origin xyz="0 0 0.034" rpy="-1.5708 0 1.5708"/>
+      <parent link="leg_front_r_1"/>
+      <child link="leg_front_r_2"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-0.5236" upper="0.87266" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <joint name="leg_front_r_3" type="revolute">
+      <origin xyz="-0.0515 0 0.07" rpy="1.5708 2.26893 0"/>
+      <parent link="leg_front_r_2"/>
+      <child link="leg_front_r_3"/>
+      <axis xyz="0 0 1.0"/>
+      <limit lower="-3.05433" upper="0.82903" effort="3.7" velocity="47.12389"/>
+    </joint>
+
+    <material name="ABS_(White)">
+      <color rgba="0.96471 0.96471 0.95294 1.0"/>
+    </material>
+
+    <material name="Plastic_-_Matte_(Gray)">
+      <color rgba="0.70196 0.70196 0.70196 1.0"/>
+    </material>
+
+    <material name="Plastic_-_Matte_(White)">
+      <color rgba="0.62745 0.83922 1.0 1.0"/>
+    </material>
+
+    <material name="Polyurethane">
+      <color rgba="0 0 0 1.0"/>
+    </material>
+
+    <material name="Steel_-_Satin">
+      <color rgba="0.62745 0.62745 0.62745 1.0"/>
+    </material>
+
+  </robot>
