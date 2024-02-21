@@ -5,14 +5,15 @@
         
     <ros2_control name="pi3hat_hardware_interface" type="system">
         <hardware>
-            <plugin>pi3hat_hardware_interface/Pi3HatHardwareInterface</plugin>
+            <plugin>control_board_hardware_interface/ControlBoardHardwareInterface</plugin>
         </hardware>
 
         <joint name="leg_front_l_1">
             <param name="can_channel">1</param>
             <param name="can_id">1</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">2</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">1.22</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -39,7 +40,8 @@
             <param name="can_channel">1</param>
             <param name="can_id">2</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">1</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">0.42</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -66,7 +68,8 @@
             <param name="can_channel">1</param>
             <param name="can_id">3</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">0</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-0.72</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -93,7 +96,8 @@
             <param name="can_channel">3</param>
             <param name="can_id">1</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">2</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">1.22</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -120,7 +124,8 @@
             <param name="can_channel">3</param>
             <param name="can_id">2</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">1</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">0.42</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -147,7 +152,8 @@
             <param name="can_channel">3</param>
             <param name="can_id">3</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">0</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-0.72</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -175,7 +181,8 @@
             <param name="can_channel">2</param>
             <param name="can_id">1</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">2</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-1.22</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -202,7 +209,8 @@
             <param name="can_channel">2</param>
             <param name="can_id">2</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">1</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-0.42</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -229,7 +237,8 @@
             <param name="can_channel">2</param>
             <param name="can_id">3</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">0</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">0.72</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -256,7 +265,8 @@
             <param name="can_channel">4</param>
             <param name="can_id">1</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">2</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-1.22</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -283,7 +293,8 @@
             <param name="can_channel">4</param>
             <param name="can_id">2</param>
 
-            <param name="homing_velocity">-0.5</param>
+            <param name="homing_stage">1</param>
+            <param name="homing_velocity">-1.0</param>
             <param name="homed_position">-0.42</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
@@ -310,7 +321,8 @@
             <param name="can_channel">4</param>
             <param name="can_id">3</param>
 
-            <param name="homing_velocity">0.5</param>
+            <param name="homing_stage">0</param>
+            <param name="homing_velocity">1.0</param>
             <param name="homed_position">0.72</param>
             <param name="homing_kp">5.0</param>
             <param name="homing_kd">0.2</param>
