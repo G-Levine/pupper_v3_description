@@ -3,9 +3,9 @@
     <xacro:include filename="$(find pupper_v3_description)/description/components.xacro" />
     <xacro:macro name="pupper_v3_system">
 
-        <ros2_control name="pi3hat_hardware_interface" type="system">
+        <ros2_control name="mujoco_hardware_interface" type="system">
             <hardware>
-                <plugin>control_board_hardware_interface/ControlBoardHardwareInterface</plugin>
+                <plugin>mujoco_hardware_interface/MujocoHardwareInterface</plugin>
             </hardware>
             <xacro:define_components />
         </ros2_control>
