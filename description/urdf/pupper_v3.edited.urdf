@@ -281,7 +281,7 @@
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
         <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.013.dae"
-          scale="1.00000 1.00000 1.00000" />
+          scale="1.00000 -1.00000 1.00000" />
       </geometry>
     </visual>
   </link>

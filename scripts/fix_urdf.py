@@ -15,9 +15,22 @@ def fix_mesh_paths(urdf_file_path, output_file_path):
         if filename.startswith("../"):
             # Update the filename
             new_filename = (
-                "package://pupper_v3_description/description/" + filename[3:]
-            ).replace(" ", "")
+                ("package://pupper_v3_description/description/" + filename[3:])
+                .replace(" ", "")
+                .replace("dae", "stl")
+            )
             mesh.set("filename", new_filename)
+
+    # Define the new mujoco tag and its child
+    mujoco_tag = ET.Element("mujoco")
+    compiler_tag = ET.SubElement(
+        mujoco_tag,
+        "compiler",
+        attrib={"meshdir": "../meshes/stl/", "discardvisual": "false"},
+    )
+
+    # Insert the mujoco tag right below the robot tag
+    root.insert(0, mujoco_tag)
 
     # Write the modified tree to a new file
     tree.write(output_file_path)
@@ -26,9 +39,5 @@ def fix_mesh_paths(urdf_file_path, output_file_path):
 parser = argparse.ArgumentParser()
 parser.add_argument("--urdf_path", type=pathlib.Path, required=True)
 args = parser.parse_args()
-
-# Example usage
-urdf_file_path = "path/to/your/original/urdf/file.urdf"
-output_file_path = "path/to/your/fixed/urdf/file.urdf"
 
 fix_mesh_paths(args.urdf_path, args.urdf_path.with_suffix(".fixed.urdf"))
