@@ -105,7 +105,7 @@
     <visual name="body">
       <origin rpy="-1.57080 -0.00000 1.57080" xyz="0.00000 0.00000 0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Body V4 v70.001.dae" scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/BodyV4v70.001.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -118,8 +118,7 @@
     <visual name="Leg Assembly For Flanged v26.012">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.013.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.013.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -138,8 +137,7 @@
     <visual name="Leg Assembly For Flanged v26.013">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="+0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.014.dae"
-          scale="1.00000 1.00000 -1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.014.dae" scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -158,8 +156,7 @@
     <visual name="Leg Assembly For Flanged v26.014">
       <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.015.dae"
-          scale="1.00000 1.00000 -1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.015.dae" scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -172,8 +169,7 @@
     <visual name="Leg Assembly For Flanged v26.004">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.005.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.005.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -192,8 +188,7 @@
     <visual name="Leg Assembly For Flanged v26.005">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="-0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.006.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.006.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -212,8 +207,7 @@
     <visual name="Leg Assembly For Flanged v26.006">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.007.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.007.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -226,8 +220,7 @@
     <visual name="Leg Assembly For Flanged v26.009">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.010.dae"
-          scale="1.00000 -1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.010.dae" scale="1.00000 -1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -246,8 +239,7 @@
     <visual name="Leg Assembly For Flanged v26.010">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="+0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.011.dae"
-          scale="1.00000 1.00000 -1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.011.dae" scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -266,8 +258,7 @@
     <visual name="Leg Assembly For Flanged v26.011">
       <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.012.dae"
-          scale="1.00000 1.00000 -1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.012.dae" scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -280,8 +271,7 @@
     <visual name="Leg Assembly For Flanged v26.001">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.001.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.001.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -300,8 +290,7 @@
     <visual name="Leg Assembly For Flanged v26.002">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="-0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.002.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.002.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
@@ -320,8 +309,7 @@
     <visual name="Leg Assembly For Flanged v26.003">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.003.dae"
-          scale="1.00000 1.00000 1.00000" />
+        <mesh filename="package://pupper_v3_description/description/meshes/dae/LegAssemblyForFlangedv26.003.dae" scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>

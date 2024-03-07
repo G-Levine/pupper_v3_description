@@ -24,21 +24,21 @@
 
   <joint name="leg_front_l_1" type="revolute">
     <limit lower="-1.22000" upper="2.51000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="-1.57080 0.00000 0.00000" xyz="0.07500 0.08350 0.00000" />
+    <origin rpy="1.57080 0.00000 0.00000" xyz="0.07500 0.08350 0.00000" />
     <parent link="base_link" />
     <child link="leg_front_l_1" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_front_l_2" type="revolute">
     <limit lower="-0.42000" upper="3.14000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="1.57080 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000" />
+    <origin rpy="1.49199 -1.57080 -1.49198" xyz="0.00000 0.00000 0.00000" />
     <parent link="leg_front_l_1" />
     <child link="leg_front_l_2" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_front_l_3" type="revolute">
     <limit lower="-2.79000" upper="0.63000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="-0.00000 1.57080 3.14159" xyz="0.00000 -0.04940 0.06850" />
+    <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
     <parent link="leg_front_l_2" />
     <child link="leg_front_l_3" />
     <axis xyz="0.00000 0.00000 1.00000" />
@@ -69,21 +69,21 @@
 
   <joint name="leg_back_l_1" type="revolute">
     <limit lower="-1.22000" upper="2.51000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="-1.57080 0.00000 0.00000" xyz="-0.07500 0.07250 0.00000" />
+    <origin rpy="1.57080 0.00000 0.00000" xyz="-0.07500 0.07250 0.00000" />
     <parent link="base_link" />
     <child link="leg_back_l_1" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_back_l_2" type="revolute">
     <limit lower="-0.42000" upper="3.14000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="1.57080 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000" />
+    <origin rpy="1.49199 -1.57080 -1.49198" xyz="0.00000 0.00000 0.00000" />
     <parent link="leg_back_l_1" />
     <child link="leg_back_l_2" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_back_l_3" type="revolute">
     <limit lower="-2.79000" upper="0.63000" effort="3.00000" velocity="100.00000" />
-    <origin rpy="-0.00000 1.57080 3.14159" xyz="0.00000 -0.04940 0.06850" />
+    <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
     <parent link="leg_back_l_2" />
     <child link="leg_back_l_3" />
     <axis xyz="0.00000 0.00000 1.00000" />
@@ -116,10 +116,10 @@
       <mass value="0.15000" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.012">
-      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
+      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 +0.02800" />
       <geometry>
         <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.013.dae"
-          scale="1.00000 1.00000 1.00000" />
+          scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -145,7 +145,7 @@
   </link>
   <link name="leg_back_l_3">
     <collision name="Leg Assembly For Flanged v26.016">
-      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 0.06216 0.01800" />
+      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 -0.06216 0.01800" />
       <geometry>
         <sphere radius="0.01995" />
       </geometry>
@@ -156,7 +156,7 @@
       <mass value="0.05000" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.014">
-      <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
+      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 +0.02800" />
       <geometry>
         <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.015.dae"
           scale="1.00000 1.00000 -1.00000" />
@@ -224,10 +224,10 @@
       <mass value="0.15000" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.009">
-      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
+      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 +0.02800" />
       <geometry>
         <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.010.dae"
-          scale="1.00000 -1.00000 1.00000" />
+          scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
@@ -253,7 +253,7 @@
   </link>
   <link name="leg_front_l_3">
     <collision name="Leg Assembly For Flanged v26.015">
-      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 0.06216 0.01800" />
+      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 -0.06216 0.01800" />
       <geometry>
         <sphere radius="0.01995" />
       </geometry>
@@ -264,7 +264,7 @@
       <mass value="0.05000" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.011">
-      <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
+      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 +0.02800" />
       <geometry>
         <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.012.dae"
           scale="1.00000 1.00000 -1.00000" />

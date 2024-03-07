@@ -1,3 +1,0 @@
-Instantiated with filepath=None->None, scale=[1.0, 1.0, 1.0], mesh=<bpy_struct, Mesh("Leg Assembly For Flanged v26.005") at 0x151e0ce08>, meshname=Leg Assembly For Flanged v26.005, material=None, mesh_orientation=None, {}
-->trying export of <bpy_struct, Mesh("Leg Assembly For Flanged v26.005") at 0x151e0ce08> to /Users/rael/Documents/GitHub/ros2_ws/src/pupper_v3_description/description/meshes/dae/Leg Assembly For Flanged v26.005.dae
-->wrote dae to /Users/rael/Documents/GitHub/ros2_ws/src/pupper_v3_description/description/meshes/dae/Leg Assembly For Flanged v26.005.dae from bpy_types.Mesh
