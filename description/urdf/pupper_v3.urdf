@@ -109,22 +109,22 @@
       </geometry>
     </visual>
   </link>
-  <link name="leg_back_l_1">
+  <link name="leg_front_r_1">
     <inertial>
       <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 0.0 0.0" />
       <mass value="0.18000" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.012">
+    <visual name="Leg Assembly For Flanged v26.001">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.013.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.001.dae"
           scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
-  <link name="leg_back_l_2">
-    <collision name="Cylinder.003">
+  <link name="leg_front_r_2">
+    <collision name="Cylinder">
       <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
       <geometry>
         <cylinder radius="0.02500" length="0.03000" />
@@ -132,73 +132,19 @@
     </collision>
     <inertial>
       <inertia ixx="0.000113" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.000025" izz="0.000077" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00173 -0.03340 0.05419" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 -0.03340 0.05419" />
       <mass value="0.18600" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.013">
-      <origin rpy="0.26213 -1.57080 2.87947" xyz="+0.02800 -0.00000 -0.00000" />
-      <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.014.dae"
-          scale="1.00000 1.00000 -1.00000" />
-      </geometry>
-    </visual>
-  </link>
-  <link name="leg_back_l_3">
-    <collision name="Leg Assembly For Flanged v26.016">
-      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 0.06216 0.01800" />
-      <geometry>
-        <sphere radius="0.01995" />
-      </geometry>
-    </collision>
-    <inertial>
-      <inertia ixx="0.0000405" ixy="-0.000035" ixz="0.0" iyy="0.0000405" iyz="0.0" izz="0.000077" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="0.03866 0.03585 0.01833" />
-      <mass value="0.05000" />
-    </inertial>
-    <visual name="Leg Assembly For Flanged v26.014">
-      <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
-      <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.015.dae"
-          scale="1.00000 1.00000 -1.00000" />
-      </geometry>
-    </visual>
-  </link>
-  <link name="leg_back_r_1">
-    <inertial>
-      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
-      <mass value="0.18000" />
-    </inertial>
-    <visual name="Leg Assembly For Flanged v26.004">
-      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
-      <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.005.dae"
-          scale="1.00000 1.00000 1.00000" />
-      </geometry>
-    </visual>
-  </link>
-  <link name="leg_back_r_2">
-    <collision name="Cylinder.001">
-      <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
-      <geometry>
-        <cylinder radius="0.02500" length="0.03000" />
-      </geometry>
-    </collision>
-    <inertial>
-      <inertia ixx="0.000113" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.000025" izz="0.000077" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00173 -0.03340 0.05419" />
-      <mass value="0.18600" />
-    </inertial>
-    <visual name="Leg Assembly For Flanged v26.005">
+    <visual name="Leg Assembly For Flanged v26.002">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="-0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.006.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.002.dae"
           scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
-  <link name="leg_back_r_3">
-    <collision name="Leg Assembly For Flanged v26.008">
+  <link name="leg_front_r_3">
+    <collision name="Leg Assembly For Flanged v26.007">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 -0.06216 0.01800" />
       <geometry>
         <sphere radius="0.01995" />
@@ -209,10 +155,10 @@
       <origin rpy="0.00000 0.00000 0.00000" xyz="0.03866 -0.03585 0.01833" />
       <mass value="0.05000" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.006">
+    <visual name="Leg Assembly For Flanged v26.003">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.007.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.003.dae"
           scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
@@ -220,7 +166,7 @@
   <link name="leg_front_l_1">
     <inertial>
       <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 0.0 0.0" />
       <mass value="0.18000" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.009">
@@ -240,7 +186,7 @@
     </collision>
     <inertial>
       <inertia ixx="0.000113" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.000025" izz="0.000077" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00173 -0.03340 0.05419" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0 -0.03340 0.05419" />
       <mass value="0.18600" />
     </inertial>
     <visual name="Leg Assembly For Flanged v26.010">
@@ -271,22 +217,22 @@
       </geometry>
     </visual>
   </link>
-  <link name="leg_front_r_1">
+  <link name="leg_back_r_1">
     <inertial>
       <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 0.0 0.0" />
       <mass value="0.18000" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.001">
+    <visual name="Leg Assembly For Flanged v26.004">
       <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.001.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.005.dae"
           scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
-  <link name="leg_front_r_2">
-    <collision name="Cylinder">
+  <link name="leg_back_r_2">
+    <collision name="Cylinder.001">
       <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
       <geometry>
         <cylinder radius="0.02500" length="0.03000" />
@@ -294,19 +240,19 @@
     </collision>
     <inertial>
       <inertia ixx="0.000113" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.000025" izz="0.000077" />
-      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00173 -0.03340 0.05419" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 -0.03340 0.05419" />
       <mass value="0.18600" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.002">
+    <visual name="Leg Assembly For Flanged v26.005">
       <origin rpy="0.26213 -1.57080 2.87947" xyz="-0.02800 -0.00000 -0.00000" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.002.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.006.dae"
           scale="1.00000 1.00000 1.00000" />
       </geometry>
     </visual>
   </link>
-  <link name="leg_front_r_3">
-    <collision name="Leg Assembly For Flanged v26.007">
+  <link name="leg_back_r_3">
+    <collision name="Leg Assembly For Flanged v26.008">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 -0.06216 0.01800" />
       <geometry>
         <sphere radius="0.01995" />
@@ -317,11 +263,66 @@
       <origin rpy="0.00000 0.00000 0.00000" xyz="0.03866 -0.03585 0.01833" />
       <mass value="0.05000" />
     </inertial>
-    <visual name="Leg Assembly For Flanged v26.003">
+    <visual name="Leg Assembly For Flanged v26.006">
       <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06850 0.04940 -0.02800" />
       <geometry>
-        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.003.dae"
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.007.dae"
           scale="1.00000 1.00000 1.00000" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="leg_back_l_1">
+    <inertial>
+      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 0.0 0.0" />
+      <mass value="0.18000" />
+    </inertial>
+    <visual name="Leg Assembly For Flanged v26.012">
+      <origin rpy="0.00000 0.00000 3.14159" xyz="0.00000 0.00000 -0.02800" />
+      <geometry>
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.013.dae"
+          scale="1.00000 1.00000 1.00000" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="leg_back_l_2">
+    <collision name="Cylinder.003">
+      <origin rpy="-0.00000 1.57080 0.00000" xyz="0.00000 -0.04940 0.06850" />
+      <geometry>
+        <cylinder radius="0.02500" length="0.03000" />
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.000113" ixy="0.0" ixz="0.0" iyy="0.000067" iyz="0.000025" izz="0.000077" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.0 -0.03340 0.05419" />
+      <mass value="0.18600" />
+    </inertial>
+    <visual name="Leg Assembly For Flanged v26.013">
+      <origin rpy="0.26213 -1.57080 2.87947" xyz=" +0.02800 -0.00000 -0.00000" />
+      <geometry>
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.014.dae"
+          scale="1.00000 1.00000 -1.00000" />
+      </geometry>
+    </visual>
+  </link>
+  <link name="leg_back_l_3">
+    <collision name="Leg Assembly For Flanged v26.016">
+      <origin rpy="-0.00000 0.00000 3.14159" xyz="0.06231 0.06216 0.01800" />
+      <geometry>
+        <sphere radius="0.01995" />
+      </geometry>
+    </collision>
+    <inertial>
+      <inertia ixx="0.0000405" ixy="-0.000035" ixz=" 0.0" iyy=" 0.0000405" iyz=" 0.0"
+        izz="0.000077" />
+      <origin rpy="0.00000 0.00000 0.00000" xyz="0.03866 0.03585 0.01833" />
+      <mass value="0.05000" />
+    </inertial>
+    <visual name="Leg Assembly For Flanged v26.014">
+      <origin rpy="3.14159 0.00000 3.14159" xyz="0.06850 -0.04940 -0.02800" />
+      <geometry>
+        <mesh filename="../meshes/dae/Leg Assembly For Flanged v26.015.dae"
+          scale="1.00000 1.00000 -1.00000" />
       </geometry>
     </visual>
   </link>
