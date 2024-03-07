@@ -12,7 +12,7 @@ def generate_launch_description():
         get_package_share_directory("pupper_v3_description"),
         "description",
         "urdf",
-        "pupper_v3.fixed.urdf",
+        "pupper_v3.edited.fixed.urdf",
     )
     with open(urdf_file_path, "r") as infp:
         robot_desc = infp.read()
