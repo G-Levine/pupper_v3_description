@@ -23,21 +23,21 @@
   </joint>
 
   <joint name="leg_front_l_1" type="revolute">
-    <limit lower="-1.22000" upper="2.51000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-2.51000" upper="1.22000" effort="3.00000" velocity="100.00000" />
     <origin rpy="-1.57080 0.00000 0.00000" xyz="0.07500 0.08350 0.00000" />
     <parent link="base_link" />
     <child link="leg_front_l_1" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_front_l_2" type="revolute">
-    <limit lower="-0.42000" upper="3.14000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-3.14000" upper="0.42000" effort="3.00000" velocity="100.00000" />
     <origin rpy="1.57080 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000" />
     <parent link="leg_front_l_1" />
     <child link="leg_front_l_2" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_front_l_3" type="revolute">
-    <limit lower="-2.79000" upper="0.63000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-0.63000" upper="+2.79000" effort="3.00000" velocity="100.00000" />
     <origin rpy="-0.00000 1.57080 3.14159" xyz="0.00000 -0.04940 0.06850" />
     <parent link="leg_front_l_2" />
     <child link="leg_front_l_3" />
@@ -68,21 +68,21 @@
   </joint>
 
   <joint name="leg_back_l_1" type="revolute">
-    <limit lower="-1.22000" upper="2.51000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-2.51000" upper="1.22000" effort="3.00000" velocity="100.00000" />
     <origin rpy="-1.57080 0.00000 0.00000" xyz="-0.07500 0.07250 0.00000" />
     <parent link="base_link" />
     <child link="leg_back_l_1" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_back_l_2" type="revolute">
-    <limit lower="-0.42000" upper="3.14000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-3.14000" upper="0.42000" effort="3.00000" velocity="100.00000" />
     <origin rpy="1.57080 1.57080 -1.57080" xyz="0.00000 0.00000 0.00000" />
     <parent link="leg_back_l_1" />
     <child link="leg_back_l_2" />
     <axis xyz="0.00000 0.00000 1.00000" />
   </joint>
   <joint name="leg_back_l_3" type="revolute">
-    <limit lower="-2.79000" upper="0.63000" effort="3.00000" velocity="100.00000" />
+    <limit lower="-0.63000" upper="+2.79000" effort="3.00000" velocity="100.00000" />
     <origin rpy="-0.00000 1.57080 3.14159" xyz="0.00000 -0.04940 0.06850" />
     <parent link="leg_back_l_2" />
     <child link="leg_back_l_3" />
