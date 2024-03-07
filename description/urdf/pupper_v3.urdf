@@ -111,7 +111,7 @@
   </link>
   <link name="leg_back_l_1">
     <inertial>
-      <inertia ixx="0.00005" ixy="0.00000" ixz="-0.00000" iyy="0.00003" iyz="-0.00000" izz="0.00004" />
+      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
       <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
       <mass value="0.18000" />
     </inertial>
@@ -165,7 +165,7 @@
   </link>
   <link name="leg_back_r_1">
     <inertial>
-      <inertia ixx="0.00005" ixy="0.00000" ixz="-0.00000" iyy="0.00003" iyz="-0.00000" izz="0.00004" />
+      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
       <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
       <mass value="0.18000" />
     </inertial>
@@ -219,7 +219,7 @@
   </link>
   <link name="leg_front_l_1">
     <inertial>
-      <inertia ixx="0.00005" ixy="0.00000" ixz="-0.00000" iyy="0.00003" iyz="-0.00000" izz="0.00004" />
+      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
       <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
       <mass value="0.18000" />
     </inertial>
@@ -273,7 +273,7 @@
   </link>
   <link name="leg_front_r_1">
     <inertial>
-      <inertia ixx="0.00005" ixy="0.00000" ixz="-0.00000" iyy="0.00003" iyz="-0.00000" izz="0.00004" />
+      <inertia ixx="0.000074" ixy="0.0" ixz="0.0" iyy="0.000058" iyz="0.0" izz="0.000048" />
       <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00129 0.00081 -0.00595" />
       <mass value="0.18000" />
     </inertial>
