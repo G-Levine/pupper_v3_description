@@ -12,6 +12,7 @@ def compose_robot_xml(
     input_filename: str,
     output_filename: str,
     mjx_compatible: bool,
+    fixed_base: bool,
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -44,30 +45,31 @@ def compose_robot_xml(
         pos=imu_pos_str,
     )
 
-    # Add floor
-    ET.SubElement(
-        worldbody,
-        "geom",
-        name="floor",
-        size="0 0 .05",
-        type="plane",
-        material="grid",
-        condim="3",
-    )
+    if not fixed_base:
+        # Add floor
+        ET.SubElement(
+            worldbody,
+            "geom",
+            name="floor",
+            size="0 0 .05",
+            type="plane",
+            material="grid",
+            condim="3",
+        )
 
-    # Add second visual floor
-    ET.SubElement(
-        worldbody,
-        "geom",
-        name="floor_visual",
-        size="0 0 .05",
-        type="plane",
-        material="grid",
-        condim="3",
-        contype="0",
-        conaffinity="0",
-        group="1",
-    )
+        # Add second visual floor
+        ET.SubElement(
+            worldbody,
+            "geom",
+            name="floor_visual",
+            size="0 0 .05",
+            type="plane",
+            material="grid",
+            condim="3",
+            contype="0",
+            conaffinity="0",
+            group="1",
+        )
 
     # Add light
     ET.SubElement(
@@ -113,6 +115,12 @@ def compose_robot_xml(
         # save as .mjx.xml for mjx compatible xml
         output_path = output_path.with_suffix(".mjx.xml")
 
+    # Fixed base
+    if fixed_base:
+        base_joint = base_link.find("joint")
+        base_link.remove(base_joint)
+        output_path = output_path.with_suffix(".fixed_base.xml")
+
     print("Writing to:", output_path)
     tree.write(output_path)
 
@@ -122,6 +130,11 @@ parser.add_argument(
     "--mjx",
     action="store_true",
     help="Use MJX-compatible settings like no cylindrical geometry, inly condim=3, etc",
+)
+parser.add_argument(
+    "--fixed_base",
+    action="store_true",
+    help="Fix the body in space",
 )
 parser.add_argument("--xml_dir", type=pathlib.Path, required=True, help="directory")
 parser.add_argument(
@@ -152,6 +165,7 @@ args = parser.parse_args()
 
 compose_robot_xml(
     mjx_compatible=args.mjx,
+    fixed_base=args.fixed_base,
     xml_dir=args.xml_dir,
     spawn_z=args.spawn_z,
     imu_pos_str=args.imu_pos_str,
