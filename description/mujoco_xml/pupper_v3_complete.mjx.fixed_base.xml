@@ -122,5 +122,5 @@
         </body>
       </body>
     <site name="body_imu_site" pos="0.09 0 0.032" /></body>
-  <light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" /></worldbody>
+  <light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="leg_front_r_1" pos="0.5 -0.5 0.5" /></worldbody>
 </mujoco>
