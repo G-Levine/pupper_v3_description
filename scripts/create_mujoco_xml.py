@@ -79,7 +79,7 @@ def compose_robot_xml(
         "light",
         name="spotlight",
         mode="targetbodycom",
-        target="base_link",
+        target="leg_front_r_1" if mjx_compatible and fixed_base else "base_link",
         diffuse="0.9 0.9 0.9",
         specular="0.3 0.3 0.3",
         pos="0 -4 4",
@@ -92,7 +92,7 @@ def compose_robot_xml(
         "camera",
         name="tracking_cam",
         mode="targetbody",
-        target="base_link",
+        target="leg_front_r_1" if mjx_compatible and fixed_base else "base_link",
         pos="0.5 -0.5 0.5",
     )
 
