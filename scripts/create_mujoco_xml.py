@@ -137,9 +137,15 @@ def compose_robot_xml(
 
     # Fixed base
     if fixed_base:
+        # remove free joint
         base_joint = base_link.find("joint")
         base_link.remove(base_joint)
         output_path = output_path.with_suffix(".fixed_base.xml")
+
+        # remove base_link inertia for mjx model
+        if mjx:
+            base_inertia = base_link.find("inertial")
+            base_link.remove(base_inertia)
 
     print("Writing to:", output_path)
     tree.write(output_path)
