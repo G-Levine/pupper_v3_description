@@ -118,6 +118,10 @@ def compose_robot_xml(
         option = root.find(".//option")
         option.set("cone", "pyramidal")
 
+        # remove frictionloss field
+        default_joint = default_section.find("joint")
+        del default_joint.attrib["frictionloss"]
+
         # save as .mjx.xml for mjx compatible xml
         output_path = output_path.with_suffix(".mjx.xml")
 

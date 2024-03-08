@@ -30,7 +30,7 @@
         <motor forcelimited="true" forcerange="-3 3" ctrlrange="-3 3" ctrllimited="true" />
         
         <geom condim="3" friction="0.7" solimp="0.015 1 0.015" />
-        <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.01" limited="true" />
+        <joint armature="0.0016" type="hinge" damping="0.01" limited="true" />
     </default>
 <option cone="pyramidal" impratio="100" />
     <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
