@@ -2,6 +2,7 @@ import xml.etree.ElementTree as ET
 import argparse
 import pathlib
 from typing import List
+import itertools
 
 
 def compose_robot_xml(
@@ -112,6 +113,10 @@ def compose_robot_xml(
         linear_friction = default_geom.get("friction").split(" ")[0]
         default_geom.set("friction", linear_friction)
 
+        # change friction from elliptical to pyramidal
+        option = root.find(".//option")
+        option.set("cone", "pyramidal")
+
         # save as .mjx.xml for mjx compatible xml
         output_path = output_path.with_suffix(".mjx.xml")
 
@@ -135,6 +140,11 @@ parser.add_argument(
     "--fixed_base",
     action="store_true",
     help="Fix the body in space",
+)
+parser.add_argument(
+    "--all_models",
+    action="store_true",
+    help="Generate all combinations of mjx and fixed base models",
 )
 parser.add_argument("--xml_dir", type=pathlib.Path, required=True, help="directory")
 parser.add_argument(
@@ -163,19 +173,39 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-compose_robot_xml(
-    mjx_compatible=args.mjx,
-    fixed_base=args.fixed_base,
-    xml_dir=args.xml_dir,
-    spawn_z=args.spawn_z,
-    imu_pos_str=args.imu_pos_str,
-    imu_site_name=args.imu_site_name,
-    file_includes=[
-        "defaults.xml",
-        "pupper_v3_actuators.xml",
-        "sensors.xml",
-        "assets.xml",
-    ],
-    input_filename=args.input_filename,
-    output_filename=args.output_filename,
-)
+if args.all_models:
+    for mjx, fixed in itertools.product([False, True], repeat=2):
+        compose_robot_xml(
+            mjx_compatible=mjx,
+            fixed_base=fixed,
+            xml_dir=args.xml_dir,
+            spawn_z=args.spawn_z,
+            imu_pos_str=args.imu_pos_str,
+            imu_site_name=args.imu_site_name,
+            file_includes=[
+                "defaults.xml",
+                "actuators.xml",
+                "sensors.xml",
+                "assets.xml",
+            ],
+            input_filename=args.input_filename,
+            output_filename=args.output_filename,
+        )
+
+else:
+    compose_robot_xml(
+        mjx_compatible=args.mjx,
+        fixed_base=args.fixed_base,
+        xml_dir=args.xml_dir,
+        spawn_z=args.spawn_z,
+        imu_pos_str=args.imu_pos_str,
+        imu_site_name=args.imu_site_name,
+        file_includes=[
+            "defaults.xml",
+            "actuators.xml",
+            "sensors.xml",
+            "assets.xml",
+        ],
+        input_filename=args.input_filename,
+        output_filename=args.output_filename,
+    )
