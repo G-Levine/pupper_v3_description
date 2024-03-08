@@ -1,0 +1,7 @@
+<mujoco model="sensors">
+    <sensor>
+        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
+        <gyro name="body_gyro" site="body_imu_site" />
+        <accelerometer name="body_acc" site="body_imu_site" />
+    </sensor>
+</mujoco>

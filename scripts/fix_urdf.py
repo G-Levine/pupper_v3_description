@@ -21,6 +21,14 @@ def fix_mesh_paths(urdf_file_path, output_file_path):
             )
             mesh.set("filename", new_filename)
 
+    # Add world body and joint between world and body
+    world_to_robot_joint = ET.SubElement(
+        root, "joint", name="world_to_body", type="floating"
+    )
+    ET.SubElement(world_to_robot_joint, "parent", link="world")
+    ET.SubElement(world_to_robot_joint, "child", link="base_link")
+    world = ET.SubElement(root, "link", name="world")
+
     # Define the new mujoco tag and its child
     mujoco_tag = ET.Element("mujoco")
     compiler_tag = ET.SubElement(
