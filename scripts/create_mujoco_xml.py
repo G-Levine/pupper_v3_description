@@ -86,6 +86,16 @@ def compose_robot_xml(
         cutoff="100",
     )
 
+    # Add camera
+    ET.SubElement(
+        worldbody,
+        "camera",
+        name="tracking_cam",
+        mode="targetbody",
+        target="base_link",
+        pos="0.5 -0.5 0.5",
+    )
+
     # Add includes for other files
     for include in file_includes:
         print("Including xml from:", include)
