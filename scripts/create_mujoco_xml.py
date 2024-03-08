@@ -11,6 +11,7 @@ def compose_robot_xml(
     imu_site_name: str,
     input_filename: str,
     output_filename: str,
+    mjx_compatible: bool,
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -84,15 +85,44 @@ def compose_robot_xml(
     # Add includes for other files
     for include in file_includes:
         print("Including xml from:", include)
-        include_obj = ET.parse(xml_dir / include).getroot()[0]
-        root.insert(0, include_obj)
+        include_obj = ET.parse(xml_dir / include).getroot()
+        for obj in include_obj:
+            root.insert(0, obj)
 
-    # Write the modified tree to a new file
-    print("Writing to:", xml_dir / output_filename)
-    tree.write(xml_dir / output_filename)
+    output_path = pathlib.Path(xml_dir / output_filename)
+
+    # MJX compatibility
+    if mjx_compatible:
+        # Replace cylinders with sphere
+        cylinders = root.findall(".//geom[@type='cylinder']")
+        for cyl in cylinders:
+            # Change type to "sphere"
+            cyl.set("type", "sphere")
+
+            # Assume the cylinder's size attribute format is "radius length" (e.g., "0.025 0.015")
+            radius = cyl.get("size").split(" ")[0]
+            cyl.set("size", radius)
+
+        # Set condim to 3 and use only linear friction
+        default_section = root.find(".//default")
+        default_geom = default_section.find("geom")
+        default_geom.set("condim", "3")
+        linear_friction = default_geom.get("friction").split(" ")[0]
+        default_geom.set("friction", linear_friction)
+
+        # save as .mjx.xml for mjx compatible xml
+        output_path = output_path.with_suffix(".mjx.xml")
+
+    print("Writing to:", output_path)
+    tree.write(output_path)
 
 
 parser = argparse.ArgumentParser()
+parser.add_argument(
+    "--mjx",
+    action="store_true",
+    help="Use MJX-compatible settings like no cylindrical geometry, inly condim=3, etc",
+)
 parser.add_argument("--xml_dir", type=pathlib.Path, required=True, help="directory")
 parser.add_argument(
     "--input_filename",
@@ -121,6 +151,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 compose_robot_xml(
+    mjx_compatible=args.mjx,
     xml_dir=args.xml_dir,
     spawn_z=args.spawn_z,
     imu_pos_str=args.imu_pos_str,
