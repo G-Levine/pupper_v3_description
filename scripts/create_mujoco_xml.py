@@ -14,6 +14,7 @@ def compose_robot_xml(
     output_filename: str,
     mjx_compatible: bool,
     fixed_base: bool,
+    lower_leg_names: List[str],
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -102,6 +103,15 @@ def compose_robot_xml(
         include_obj = ET.parse(xml_dir / include).getroot()
         for obj in include_obj:
             root.insert(0, obj)
+
+    # Add feet sites necessary for RL
+    for lower_leg_name in lower_leg_names:
+        lower_leg_elem = tree.find(f".//body[@name='{lower_leg_name}']")
+        foot_elem = lower_leg_elem.find(".//geom")
+        foot_pos = foot_elem.get("pos")
+        ET.SubElement(
+            lower_leg_elem, "site", name=lower_leg_name + "_foot_site", pos=foot_pos
+        )
 
     output_path = pathlib.Path(xml_dir / output_filename)
 
@@ -192,6 +202,12 @@ parser.add_argument(
 parser.add_argument(
     "--imu_site_name", type=str, default="body_imu_site", help="Name of IMU site"
 )
+parser.add_argument(
+    "--lower_leg_names",
+    nargs="+",
+    help="Names of lower legs",
+    default=["leg_front_r_3", "leg_front_l_3", "leg_back_r_3", "leg_back_l_3"],
+)
 args = parser.parse_args()
 
 if args.all_models:
@@ -211,6 +227,7 @@ if args.all_models:
             ],
             input_filename=args.input_filename,
             output_filename=args.output_filename,
+            lower_leg_names=args.lower_leg_names,
         )
 
 else:
@@ -229,4 +246,5 @@ else:
         ],
         input_filename=args.input_filename,
         output_filename=args.output_filename,
+        lower_leg_names=args.lower_leg_names,
     )

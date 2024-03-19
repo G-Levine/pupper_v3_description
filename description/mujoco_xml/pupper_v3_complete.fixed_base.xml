@@ -5,9 +5,14 @@
         <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
     </asset>
 <sensor>
-        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
         <gyro name="body_gyro" site="body_imu_site" />
         <accelerometer name="body_acc" site="body_imu_site" />
+        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
+
+        <framequat objtype="site" objname="body_imu_site" name="orientation" />
+        <framepos objtype="site" objname="body_imu_site" name="global_position" />
+        <framelinvel objtype="site" objname="body_imu_site" name="global_linvel" />
+        <frameangvel objtype="site" objname="body_imu_site" name="global_angvel" />
     </sensor>
 <actuator>
         <motor gear="1" joint="leg_front_r_1" name="leg_front_r_1" />
@@ -68,7 +73,7 @@
             <joint name="leg_front_r_3" pos="0 0 0" axis="0 0 1" range="-2.79 0.71" />
             <geom size="0.01995" pos="0.06231 -0.06216 0.018" quat="1.32679e-06 0 0 1" />
             <geom pos="0.0685 0.0494 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.003" />
-          </body>
+          <site name="leg_front_r_3_foot_site" pos="0.06231 -0.06216 0.018" /></body>
         </body>
       </body>
       <body name="leg_front_l_1" pos="0.075 0.0835 0" quat="0.707105 -0.707108 0 0" gravcomp="0">
@@ -85,7 +90,7 @@
             <joint name="leg_front_l_3" pos="0 0 0" axis="0 0 1" range="-0.71 2.79" />
             <geom size="0.01995" pos="0.06231 0.06216 0.018" quat="1.32679e-06 0 0 1" />
             <geom pos="0.0685 -0.0494 -0.028" quat="1.76029e-12 1.32679e-06 1 1.32679e-06" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.012" />
-          </body>
+          <site name="leg_front_l_3_foot_site" pos="0.06231 0.06216 0.018" /></body>
         </body>
       </body>
       <body name="leg_back_r_1" pos="-0.075 -0.0725 0" quat="0.707105 0.707108 0 0" gravcomp="0">
@@ -102,7 +107,7 @@
             <joint name="leg_back_r_3" pos="0 0 0" axis="0 0 1" range="-2.79 0.71" />
             <geom size="0.01995" pos="0.06231 -0.06216 0.018" quat="1.32679e-06 0 0 1" />
             <geom pos="0.0685 0.0494 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.007" />
-          </body>
+          <site name="leg_back_r_3_foot_site" pos="0.06231 -0.06216 0.018" /></body>
         </body>
       </body>
       <body name="leg_back_l_1" pos="-0.075 0.0725 0" quat="0.707105 -0.707108 0 0" gravcomp="0">
@@ -119,7 +124,7 @@
             <joint name="leg_back_l_3" pos="0 0 0" axis="0 0 1" range="-0.71 2.79" />
             <geom size="0.01995" pos="0.06231 0.06216 0.018" quat="1.32679e-06 0 0 1" />
             <geom pos="0.0685 -0.0494 -0.028" quat="1.76029e-12 1.32679e-06 1 1.32679e-06" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.015" />
-          </body>
+          <site name="leg_back_l_3_foot_site" pos="0.06231 0.06216 0.018" /></body>
         </body>
       </body>
     <site name="body_imu_site" pos="0.09 0 0.032" /></body>
