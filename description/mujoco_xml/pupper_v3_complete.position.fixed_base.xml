@@ -35,7 +35,7 @@
         <general joint="leg_back_l_3" name="leg_back_l_3" />
     </actuator>
 <default>
-        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="1 0 0" biasprm="0 0 0" />
+        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0" biasprm="0 -5.0 -0.1" />
 
         
         <geom condim="6" friction="0.7 0.02 0.01" solimp="0.015 1 0.015" />

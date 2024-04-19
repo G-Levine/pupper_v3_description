@@ -35,7 +35,7 @@
         <general joint="leg_back_l_3" name="leg_back_l_3" />
     </actuator>
 <default>
-        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="1 0 0" biasprm="0 0 0" />
+        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0" biasprm="0 -5.0 -0.1" />
 
         
         <geom condim="6" friction="0.7 0.02 0.01" solimp="0.015 1 0.015" />
@@ -61,6 +61,7 @@
   <worldbody>
     <body name="base_link" pos="0 0 0.13" gravcomp="0">
       <inertial pos="0.025 0 0.015" quat="0 0.677807 0 0.73524" mass="1.506" diaginertia="0.00854071 0.0085 0.00235929" />
+      <joint name="world_to_body" type="free" />
       <geom size="0.04507 0.06379 0.129715" pos="0.02146 0 0.03345" quat="0.499998 -0.5 -0.500002 0.5" type="box" />
       <geom quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="BodyV4v70.001" />
       <body name="leg_front_r_1" pos="0.075 -0.0835 0" quat="0.707105 0.707108 0 0" gravcomp="0">
@@ -132,5 +133,5 @@
         </body>
       </body>
     <site name="body_imu_site" pos="0.09 0 0.032" /></body>
-  <light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" /></worldbody>
+  <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" /><geom name="floor_visual" size="0 0 .05" pos="0 0 -0.001" type="plane" material="grid" condim="3" contype="0" conaffinity="0" group="1" /><light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" /></worldbody>
 </mujoco>

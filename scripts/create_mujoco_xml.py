@@ -15,6 +15,9 @@ def compose_robot_xml(
     mjx_compatible: bool,
     fixed_base: bool,
     lower_leg_names: List[str],
+    position_control: bool,
+    position_control_kp: float = 0.0,
+    position_control_kd: float = 0.0,
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -145,6 +148,17 @@ def compose_robot_xml(
         # save as .mjx.xml for mjx compatible xml
         output_path = output_path.with_suffix(".mjx.xml")
 
+    if position_control:
+        default_section = root.find(".//default")
+        general_actuator = default_section.find("general")
+        general_actuator.set("biastype", "affine")
+        if position_control:
+            general_actuator.set("gainprm", f"{position_control_kp} 0 0")
+            general_actuator.set(
+                "biasprm", f"0 -{position_control_kp} -{position_control_kd}"
+            )
+        output_path = output_path.with_suffix(".position.xml")
+
     # Fixed base
     if fixed_base:
         # remove free joint
@@ -208,45 +222,57 @@ parser.add_argument(
     help="Names of lower legs",
     default=["leg_front_r_3", "leg_front_l_3", "leg_back_r_3", "leg_back_l_3"],
 )
+parser.add_argument(
+    "--position_control",
+    action="store_true",
+    help="Specify to make actuators position-control",
+)
+parser.add_argument(
+    "--position_control_kp",
+    type=float,
+    default=5.0,
+    help="If position control is specified, used to set actuator kp",
+)
+parser.add_argument(
+    "--position_control_kd",
+    type=float,
+    default=0.1,
+    help="If position control is specified, used to set actuator kd",
+)
 args = parser.parse_args()
 
+common_args = dict(
+    xml_dir=args.xml_dir,
+    spawn_z=args.spawn_z,
+    imu_pos_str=args.imu_pos_str,
+    imu_site_name=args.imu_site_name,
+    file_includes=[
+        "defaults.xml",
+        "actuators.xml",
+        "sensors.xml",
+        "assets.xml",
+        "home_keyframe.xml",
+    ],
+    input_filename=args.input_filename,
+    output_filename=args.output_filename,
+    lower_leg_names=args.lower_leg_names,
+    position_control_kp=args.position_control_kp,
+    position_control_kd=args.position_control_kd,
+)
+
 if args.all_models:
-    for mjx, fixed in itertools.product([False, True], repeat=2):
+    for mjx, fixed, position_control in itertools.product([False, True], repeat=3):
         compose_robot_xml(
             mjx_compatible=mjx,
             fixed_base=fixed,
-            xml_dir=args.xml_dir,
-            spawn_z=args.spawn_z,
-            imu_pos_str=args.imu_pos_str,
-            imu_site_name=args.imu_site_name,
-            file_includes=[
-                "defaults.xml",
-                "actuators.xml",
-                "sensors.xml",
-                "assets.xml",
-                "home_keyframe.xml",
-            ],
-            input_filename=args.input_filename,
-            output_filename=args.output_filename,
-            lower_leg_names=args.lower_leg_names,
+            position_control=position_control,
+            **common_args,
         )
 
 else:
     compose_robot_xml(
         mjx_compatible=args.mjx,
         fixed_base=args.fixed_base,
-        xml_dir=args.xml_dir,
-        spawn_z=args.spawn_z,
-        imu_pos_str=args.imu_pos_str,
-        imu_site_name=args.imu_site_name,
-        file_includes=[
-            "defaults.xml",
-            "actuators.xml",
-            "sensors.xml",
-            "assets.xml",
-            "home_keyframe.xml",
-        ],
-        input_filename=args.input_filename,
-        output_filename=args.output_filename,
-        lower_leg_names=args.lower_leg_names,
+        position_control=args.position_control,
+        **common_args,
     )
