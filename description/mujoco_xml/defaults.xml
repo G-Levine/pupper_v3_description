@@ -1,0 +1,11 @@
+<mujoco model="settings">
+    <option cone="elliptic" impratio="100" />
+    <default>
+        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="1 0 0"
+            biasprm="0 0 0" />
+
+        <!-- Could make a foot class with these settings and use harder contact for structure -->
+        <geom condim="6" friction="0.7 0.02 0.01" solimp="0.015 1 0.015" />
+        <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.01" limited="true" />
+    </default>
+</mujoco>
