@@ -1,48 +1,29 @@
 <mujoco model="pupper_v3">
-  <keyframe>
-        <key name="home" qpos="0 0 0.28             1 0 0 0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0" ctrl="0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0" />
-    </keyframe>
-<asset>
-        <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="512" height="512" />
-        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".2 .4 .6" rgb2=".4 .6 .8" />
-        <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
-    </asset>
-<sensor>
-        <gyro name="body_gyro" site="body_imu_site" />
-        <accelerometer name="body_acc" site="body_imu_site" />
-        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
+  <option cone="elliptic" impratio="100" />
+  <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
 
-        <framequat objtype="site" objname="body_imu_site" name="orientation" />
-        <framepos objtype="site" objname="body_imu_site" name="global_position" />
-        <framelinvel objtype="site" objname="body_imu_site" name="global_linvel" />
-        <frameangvel objtype="site" objname="body_imu_site" name="global_angvel" />
-    </sensor>
-<actuator>
-        <general joint="leg_front_r_1" name="leg_front_r_1" />
-        <general joint="leg_front_r_2" name="leg_front_r_2" />
-        <general joint="leg_front_r_3" name="leg_front_r_3" />
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="512" height="512" />
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".2 .4 .6" rgb2=".4 .6 .8" />
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
+  </asset>
 
-        <general joint="leg_front_l_1" name="leg_front_l_1" />
-        <general joint="leg_front_l_2" name="leg_front_l_2" />
-        <general joint="leg_front_l_3" name="leg_front_l_3" />
+  <sensor>
+    <gyro name="body_gyro" site="body_imu_site" />
+    <accelerometer name="body_acc" site="body_imu_site" />
+    <framequat name="body_quat" objtype="site" objname="body_imu_site" />
+    <framequat objtype="site" objname="body_imu_site" name="orientation" />
+    <framepos objtype="site" objname="body_imu_site" name="global_position" />
+    <framelinvel objtype="site" objname="body_imu_site" name="global_linvel" />
+    <frameangvel objtype="site" objname="body_imu_site" name="global_angvel" />
+  </sensor>
 
-        <general joint="leg_back_r_1" name="leg_back_r_1" />
-        <general joint="leg_back_r_2" name="leg_back_r_2" />
-        <general joint="leg_back_r_3" name="leg_back_r_3" />
+  <default>
+    <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0" biasprm="0 -5.0 -0.1" />    
+    <geom condim="6" friction="0.7 0.02 0.01" solimp="0.015 1 0.015" />
+    <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.01" limited="true" />
+  </default>
 
-        <general joint="leg_back_l_1" name="leg_back_l_1" />
-        <general joint="leg_back_l_2" name="leg_back_l_2" />
-        <general joint="leg_back_l_3" name="leg_back_l_3" />
-    </actuator>
-<default>
-        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0" biasprm="0 -5.0 -0.1" />
-
-        
-        <geom condim="6" friction="0.7 0.02 0.01" solimp="0.015 1 0.015" />
-        <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.01" limited="true" />
-    </default>
-<option cone="elliptic" impratio="100" />
-    <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
   <asset>
     <mesh name="BodyV4v70.001" file="BodyV4v70.001.stl" />
     <mesh name="LegAssemblyForFlangedv26.001" file="LegAssemblyForFlangedv26.001.stl" />
@@ -58,6 +39,7 @@
     <mesh name="LegAssemblyForFlangedv26.014" file="LegAssemblyForFlangedv26.014.stl" scale="1 1 -1" />
     <mesh name="LegAssemblyForFlangedv26.015" file="LegAssemblyForFlangedv26.015.stl" scale="1 1 -1" />
   </asset>
+
   <worldbody>
     <body name="base_link" pos="0 0 0.13" gravcomp="0">
       <inertial pos="0.025 0 0.015" quat="0 0.677807 0 0.73524" mass="1.506" diaginertia="0.00854071 0.0085 0.00235929" />
@@ -133,5 +115,32 @@
         </body>
       </body>
     <site name="body_imu_site" pos="0.09 0 0.032" /></body>
-  <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" /><geom name="floor_visual" size="0 0 .05" pos="0 0 -0.001" type="plane" material="grid" condim="3" contype="0" conaffinity="0" group="1" /><light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" /></worldbody>
+  <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" /><geom name="floor_visual" size="0 0 .05" pos="0 0 -0.001" type="plane" material="grid" condim="3" contype="0" conaffinity="0" group="1" /><light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9" specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" /><camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" />
+
+  </worldbody>
+
+  <actuator>
+    <general joint="leg_front_r_1" name="leg_front_r_1" />
+    <general joint="leg_front_r_2" name="leg_front_r_2" />
+    <general joint="leg_front_r_3" name="leg_front_r_3" />
+
+    <general joint="leg_front_l_1" name="leg_front_l_1" />
+    <general joint="leg_front_l_2" name="leg_front_l_2" />
+    <general joint="leg_front_l_3" name="leg_front_l_3" />
+
+    <general joint="leg_back_r_1" name="leg_back_r_1" />
+    <general joint="leg_back_r_2" name="leg_back_r_2" />
+    <general joint="leg_back_r_3" name="leg_back_r_3" />
+
+    <general joint="leg_back_l_1" name="leg_back_l_1" />
+    <general joint="leg_back_l_2" name="leg_back_l_2" />
+    <general joint="leg_back_l_3" name="leg_back_l_3" />
+  </actuator>
+
+  <keyframe>
+    <key name="home"
+      qpos="0 0 0.28             1 0 0 0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0"
+      ctrl="0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0" />
+  </keyframe>
+
 </mujoco>
