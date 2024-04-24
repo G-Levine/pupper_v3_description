@@ -5,7 +5,10 @@
     <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
   </asset>
 
-  <option cone="pyramidal" impratio="10" />
+  <option iterations="1" ls_iterations="5" cone="pyramidal" impratio="10" >
+    <flag eulerdamp="disable"/>
+  </option>
+
   <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
 
   <sensor>
@@ -18,6 +21,10 @@
     <frameangvel objtype="site" objname="body_imu_site" name="global_angvel" />
   </sensor>
 
+  <custom>
+    <numeric data="5" name="max_contact_points"/>
+    <numeric data="4" name="max_geom_pairs"/>
+  </custom>
 
   <default>
     <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0" biasprm="0 -5.0 -0.1" />
