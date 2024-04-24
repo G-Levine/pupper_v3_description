@@ -8,9 +8,9 @@
         <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
     </asset>
 <sensor>
+        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
         <gyro name="body_gyro" site="body_imu_site" />
         <accelerometer name="body_acc" site="body_imu_site" />
-        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
 
         <framequat objtype="site" objname="body_imu_site" name="orientation" />
         <framepos objtype="site" objname="body_imu_site" name="global_position" />
