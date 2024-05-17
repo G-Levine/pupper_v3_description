@@ -15,9 +15,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-1.12</param>
+            <param name="position_max">2.41</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -43,9 +43,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-0.32</param>
+            <param name="position_max">3.04</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -66,14 +66,14 @@
 
             <param name="homing_stage">0</param>
             <param name="homing_velocity">1.0</param>
-            <param name="homed_position">0.62</param>
+            <param name="homed_position">0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-2.69</param>
+            <param name="position_max">0.61</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -99,9 +99,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-2.41</param>
+            <param name="position_max">1.12</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -127,9 +127,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-3.04</param>
+            <param name="position_max">0.32</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -150,14 +150,14 @@
 
             <param name="homing_stage">0</param>
             <param name="homing_velocity">-1.0</param>
-            <param name="homed_position">-0.62</param>
+            <param name="homed_position">-0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-0.61</param>
+            <param name="position_max">2.69</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -183,9 +183,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-1.12</param>
+            <param name="position_max">2.41</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -211,9 +211,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-0.32</param>
+            <param name="position_max">3.04</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -234,14 +234,14 @@
 
             <param name="homing_stage">0</param>
             <param name="homing_velocity">1.0</param>
-            <param name="homed_position">0.62</param>
+            <param name="homed_position">0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-2.69</param>
+            <param name="position_max">0.61</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -267,9 +267,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-2.41</param>
+            <param name="position_max">1.12</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -295,9 +295,9 @@
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-3.04</param>
+            <param name="position_max">0.32</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
@@ -318,14 +318,14 @@
 
             <param name="homing_stage">0</param>
             <param name="homing_velocity">-1.0</param>
-            <param name="homed_position">-0.62</param>
+            <param name="homed_position">-0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
 
-            <param name="position_min">-1.0</param>
-            <param name="position_max">1.0</param>
-            <param name="velocity_max">1.0</param>
+            <param name="position_min">-0.61</param>
+            <param name="position_max">2.69</param>
+            <param name="velocity_max">30.0</param>
             <param name="effort_max">3.0</param>
             <param name="kp_max">10.0</param>
             <param name="kd_max">1.0</param>
