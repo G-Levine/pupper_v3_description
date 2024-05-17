@@ -9,8 +9,9 @@
             <param name="can_id">1</param>
 
             <param name="homing_stage">2</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-1.22</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -37,8 +38,9 @@
             <param name="can_id">2</param>
 
             <param name="homing_stage">1</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-0.42</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -65,8 +67,9 @@
             <param name="can_id">3</param>
 
             <param name="homing_stage">0</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">0.71</param>
+            <param name="post_homing_position">0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -93,8 +96,9 @@
             <param name="can_id">1</param>
 
             <param name="homing_stage">2</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">1.22</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -121,8 +125,9 @@
             <param name="can_id">2</param>
 
             <param name="homing_stage">1</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">0.42</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -149,8 +154,9 @@
             <param name="can_id">3</param>
 
             <param name="homing_stage">0</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-0.71</param>
+            <param name="post_homing_position">-0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -177,8 +183,9 @@
             <param name="can_id">1</param>
 
             <param name="homing_stage">2</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-1.22</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -205,8 +212,9 @@
             <param name="can_id">2</param>
 
             <param name="homing_stage">1</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-0.42</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -233,8 +241,9 @@
             <param name="can_id">3</param>
 
             <param name="homing_stage">0</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">0.71</param>
+            <param name="post_homing_position">0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -261,8 +270,9 @@
             <param name="can_id">1</param>
 
             <param name="homing_stage">2</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">1.22</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -289,8 +299,9 @@
             <param name="can_id">2</param>
 
             <param name="homing_stage">1</param>
-            <param name="homing_velocity">1.0</param>
+            <param name="homing_velocity">1.5</param>
             <param name="homed_position">0.42</param>
+            <param name="post_homing_position">0.0</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
@@ -317,8 +328,9 @@
             <param name="can_id">3</param>
 
             <param name="homing_stage">0</param>
-            <param name="homing_velocity">-1.0</param>
+            <param name="homing_velocity">-1.5</param>
             <param name="homed_position">-0.71</param>
+            <param name="post_homing_position">-0.71</param>
             <param name="homing_kp">5.5</param>
             <param name="homing_kd">0.2</param>
             <param name="homing_torque_threshold">2.0</param>
