@@ -3,6 +3,7 @@ import argparse
 import pathlib
 from typing import List
 import itertools
+import re
 
 
 def compose_robot_xml(
@@ -37,14 +38,12 @@ def compose_robot_xml(
         if child.tag == "default":
             root.remove(child)
 
-    # Iterate over all 'geom' elements and remove 'contype' and 'conaffinity' attributes
-    # Remove all contype and conaffinity tags so everything becomes collision geom
-    # TODO buggy: too many self collisions
-    # for geom in root.findall(".//geom"):
-    #     if "contype" in geom.attrib:
-    #         del geom.attrib["contype"]
-    #     if "conaffinity" in geom.attrib:
-    #         del geom.attrib["conaffinity"]
+    # Add includes for other files
+    for include in file_includes:
+        print("Including xml from:", include)
+        include_obj = ET.parse(xml_dir / include).getroot()
+        for obj in include_obj:
+            root.insert(0, obj)
 
     worldbody = root.find("worldbody")
 
@@ -56,6 +55,15 @@ def compose_robot_xml(
         name=imu_site_name,
         pos=imu_pos_str,
     )
+
+    # Remove the position and orientation qpos values from the keyframe if using fixed based
+    if fixed_base:
+        key = root.find("keyframe").find("key")
+        qpos = key.get("qpos")
+        qpos_values = re.split(r"\s+", qpos.strip())
+        if len(qpos_values) > 7:
+            updated_qpos = " ".join(qpos_values[7:])
+            key.set("qpos", updated_qpos)
 
     if not fixed_base:
         # Add floor which will collide with objects of class collision
@@ -108,13 +116,6 @@ def compose_robot_xml(
         target="leg_front_r_1" if mjx_compatible and fixed_base else "base_link",
         pos="0.5 -0.5 0.5",
     )
-
-    # Add includes for other files
-    for include in file_includes:
-        print("Including xml from:", include)
-        include_obj = ET.parse(xml_dir / include).getroot()
-        for obj in include_obj:
-            root.insert(0, obj)
 
     # Add feet sites necessary for RL
     for lower_leg_name in lower_leg_names:
