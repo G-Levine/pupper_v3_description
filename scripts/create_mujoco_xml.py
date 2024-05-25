@@ -18,6 +18,13 @@ def compose_robot_xml(
     position_control: bool,
     position_control_kp: float = 0.0,
     position_control_kd: float = 0.0,
+    iterations: int = 1,
+    ls_iterations: int = 5,
+    impratio: float = 10,
+    timestep: float = 0.004,
+    max_contact_points: int = 5,
+    max_geom_pairs: int = 4,
+    eulerdamp: bool = False,
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -51,7 +58,7 @@ def compose_robot_xml(
     )
 
     if not fixed_base:
-        # Add floor
+        # Add floor which will collide with objects of class collision
         ET.SubElement(
             worldbody,
             "geom",
@@ -60,6 +67,8 @@ def compose_robot_xml(
             type="plane",
             material="grid",
             condim="3",
+            contype="1",
+            conaffinity="1",
         )
 
         # Add second visual floor
@@ -112,11 +121,19 @@ def compose_robot_xml(
         lower_leg_elem = tree.find(f".//body[@name='{lower_leg_name}']")
         foot_elem = lower_leg_elem.find(".//geom")
         foot_pos = foot_elem.get("pos")
-        ET.SubElement(
-            lower_leg_elem, "site", name=lower_leg_name + "_foot_site", pos=foot_pos
-        )
+        ET.SubElement(lower_leg_elem, "site", name=lower_leg_name + "_foot_site", pos=foot_pos)
 
     output_path = pathlib.Path(xml_dir / output_filename)
+
+    # Set collision class for geometry of type box, cylinder or sphere
+    collision_geom_types = ["box", "cylinder", "sphere", None]
+    collision_geoms = [
+        geom for geom in worldbody.findall(".//geom") if geom.get("type") in collision_geom_types
+    ]
+    for geom in collision_geoms:
+        if geom.get("type") is None:
+            geom.set("type", "sphere")
+        geom.set("class", "collision")
 
     # MJX compatibility
     if mjx_compatible:
@@ -134,12 +151,18 @@ def compose_robot_xml(
         default_section = root.find(".//default")
         default_geom = default_section.find("geom")
         default_geom.set("condim", "3")
-        linear_friction = default_geom.get("friction").split(" ")[0]
-        default_geom.set("friction", linear_friction)
 
         # change friction from elliptical to pyramidal
         option = root.find(".//option")
         option.set("cone", "pyramidal")
+        option.set("iterations", str(iterations))
+        option.set("ls_iterations", str(ls_iterations))
+        option.set("impratio", str(impratio))
+        option.set("timestep", str(timestep))
+
+        custom = ET.SubElement(root, "custom")
+        ET.SubElement(custom, "numeric", data=str(max_contact_points), name="max_contact_points")
+        ET.SubElement(custom, "numeric", data=str(max_geom_pairs), name="max_geom_pairs")
 
         # remove frictionloss field
         default_joint = default_section.find("joint")
@@ -154,9 +177,7 @@ def compose_robot_xml(
         general_actuator.set("biastype", "affine")
         if position_control:
             general_actuator.set("gainprm", f"{position_control_kp} 0 0")
-            general_actuator.set(
-                "biasprm", f"0 -{position_control_kp} -{position_control_kd}"
-            )
+            general_actuator.set("biasprm", f"0 -{position_control_kp} -{position_control_kd}")
         output_path = output_path.with_suffix(".position.xml")
 
     # Fixed base
@@ -213,9 +234,7 @@ parser.add_argument(
     help="xyz coordinates (m) of IMU in body frame",
     default="0.09 0 0.032",
 )
-parser.add_argument(
-    "--imu_site_name", type=str, default="body_imu_site", help="Name of IMU site"
-)
+parser.add_argument("--imu_site_name", type=str, default="body_imu_site", help="Name of IMU site")
 parser.add_argument(
     "--lower_leg_names",
     nargs="+",

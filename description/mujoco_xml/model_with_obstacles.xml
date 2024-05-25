@@ -1,0 +1,512 @@
+<mujoco model="pupper_v3">
+    <keyframe>
+        <key name="home"
+            qpos="0 0 0.28             1 0 0 0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0"
+            ctrl="0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0             0.0 0.0 0.0" />
+    </keyframe>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="512"
+            height="512" />
+        <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".2 .4 .6"
+            rgb2=".4 .6 .8" />
+        <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance="0" />
+    </asset>
+    <sensor>
+        <framequat name="body_quat" objtype="site" objname="body_imu_site" />
+        <gyro name="body_gyro" site="body_imu_site" />
+        <accelerometer name="body_acc" site="body_imu_site" />
+
+        <framequat objtype="site" objname="body_imu_site" name="orientation" />
+        <framepos objtype="site" objname="body_imu_site" name="global_position" />
+        <framelinvel objtype="site" objname="body_imu_site" name="global_linvel" />
+        <frameangvel objtype="site" objname="body_imu_site" name="global_angvel" />
+    </sensor>
+    <actuator>
+        <general joint="leg_front_r_1" name="leg_front_r_1" />
+        <general joint="leg_front_r_2" name="leg_front_r_2" />
+        <general joint="leg_front_r_3" name="leg_front_r_3" />
+
+        <general joint="leg_front_l_1" name="leg_front_l_1" />
+        <general joint="leg_front_l_2" name="leg_front_l_2" />
+        <general joint="leg_front_l_3" name="leg_front_l_3" />
+
+        <general joint="leg_back_r_1" name="leg_back_r_1" />
+        <general joint="leg_back_r_2" name="leg_back_r_2" />
+        <general joint="leg_back_r_3" name="leg_back_r_3" />
+
+        <general joint="leg_back_l_1" name="leg_back_l_1" />
+        <general joint="leg_back_l_2" name="leg_back_l_2" />
+        <general joint="leg_back_l_3" name="leg_back_l_3" />
+    </actuator>
+    <default>
+        <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="5.0 0 0"
+            biasprm="0 -5.0 -0.1" />
+
+
+        <geom condim="3" friction="0.7" solimp="0.015 1 0.015" />
+        <joint armature="0.0016" type="hinge" damping="0.01" limited="true" />
+    </default>
+    <option cone="pyramidal" impratio="100" />
+    <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
+    <asset>
+        <mesh name="BodyV4v70.001" file="BodyV4v70.001.stl" />
+        <mesh name="LegAssemblyForFlangedv26.001" file="LegAssemblyForFlangedv26.001.stl" />
+        <mesh name="LegAssemblyForFlangedv26.002" file="LegAssemblyForFlangedv26.002.stl" />
+        <mesh name="LegAssemblyForFlangedv26.003" file="LegAssemblyForFlangedv26.003.stl" />
+        <mesh name="LegAssemblyForFlangedv26.010" file="LegAssemblyForFlangedv26.010.stl"
+            scale="1 -1 1" />
+        <mesh name="LegAssemblyForFlangedv26.011" file="LegAssemblyForFlangedv26.011.stl"
+            scale="1 1 -1" />
+        <mesh name="LegAssemblyForFlangedv26.012" file="LegAssemblyForFlangedv26.012.stl"
+            scale="1 1 -1" />
+        <mesh name="LegAssemblyForFlangedv26.005" file="LegAssemblyForFlangedv26.005.stl" />
+        <mesh name="LegAssemblyForFlangedv26.006" file="LegAssemblyForFlangedv26.006.stl" />
+        <mesh name="LegAssemblyForFlangedv26.007" file="LegAssemblyForFlangedv26.007.stl" />
+        <mesh name="LegAssemblyForFlangedv26.013" file="LegAssemblyForFlangedv26.013.stl"
+            scale="1 -1 1" />
+        <mesh name="LegAssemblyForFlangedv26.014" file="LegAssemblyForFlangedv26.014.stl"
+            scale="1 1 -1" />
+        <mesh name="LegAssemblyForFlangedv26.015" file="LegAssemblyForFlangedv26.015.stl"
+            scale="1 1 -1" />
+    </asset>
+    <worldbody>
+        <body name="base_link" pos="0 0 0.13" gravcomp="0">
+            <inertial pos="0.025 0 0.015" quat="0 0.677807 0 0.73524" mass="1.506"
+                diaginertia="0.00854071 0.0085 0.00235929" />
+            <joint name="world_to_body" type="free" />
+            <geom size="0.04507 0.06379 0.129715" pos="0.02146 0 0.03345"
+                quat="0.499998 -0.5 -0.500002 0.5" type="box" />
+            <geom quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0"
+                group="1" density="0" mesh="BodyV4v70.001" />
+            <body name="leg_front_r_1" pos="0.075 -0.0835 0" quat="0.707105 0.707108 0 0"
+                gravcomp="0">
+                <inertial pos="0 0 0" mass="0.18" diaginertia="7.4e-05 5.8e-05 4.8e-05" />
+                <joint name="leg_front_r_1" pos="0 0 0" axis="0 0 1" range="-1.22 2.51" />
+                <geom pos="0 0 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0"
+                    conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.001" />
+                <body name="leg_front_r_2" pos="0 0 0"
+                    quat="0.707107 2.24089e-06 -0.707107 4.83018e-06" gravcomp="0">
+                    <inertial pos="0 -0.0334 0.05419" quat="0.903877 0.427791 0 0" mass="0.186"
+                        diaginertia="0.000113 9.74951e-05 4.65049e-05" />
+                    <joint name="leg_front_r_2" pos="0 0 0" axis="0 0 1" range="-0.42 3.14" />
+                    <geom size="0.025" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        type="sphere" />
+                    <geom pos="-0.028 0 0" quat="-2.93388e-06 0.707108 2.26082e-06 0.707106"
+                        type="mesh" contype="0" conaffinity="0" group="1" density="0"
+                        mesh="LegAssemblyForFlangedv26.002" />
+                    <body name="leg_front_r_3" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        gravcomp="0">
+                        <inertial pos="0.03866 -0.03585 0.01833"
+                            quat="0.270598 0.653281 -0.270598 0.653281" mass="0.05"
+                            diaginertia="7.7e-05 7.55e-05 5.5e-06" />
+                        <joint name="leg_front_r_3" pos="0 0 0" axis="0 0 1" range="-2.79 0.71" />
+                        <geom size="0.01995" pos="0.06231 -0.06216 0.018" quat="1.32679e-06 0 0 1" />
+                        <geom pos="0.0685 0.0494 -0.028" quat="1.32679e-06 0 0 1" type="mesh"
+                            contype="0" conaffinity="0" group="1" density="0"
+                            mesh="LegAssemblyForFlangedv26.003" />
+                        <site name="leg_front_r_3_foot_site" pos="0.06231 -0.06216 0.018" />
+                    </body>
+                </body>
+            </body>
+            <body name="leg_front_l_1" pos="0.075 0.0835 0" quat="0.707105 -0.707108 0 0"
+                gravcomp="0">
+                <inertial pos="0 0 0" mass="0.18" diaginertia="7.4e-05 5.8e-05 4.8e-05" />
+                <joint name="leg_front_l_1" pos="0 0 0" axis="0 0 1" range="-2.51 1.22" />
+                <geom pos="0 0 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0"
+                    conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.010" />
+                <body name="leg_front_l_2" pos="0 0 0"
+                    quat="-3.89602e-06 0.707107 -1.29867e-06 -0.707107" gravcomp="0">
+                    <inertial pos="0 -0.0334 0.05419" quat="0.903877 0.427791 0 0" mass="0.186"
+                        diaginertia="0.000113 9.74951e-05 4.65049e-05" />
+                    <joint name="leg_front_l_2" pos="0 0 0" axis="0 0 1" range="-3.14 0.42" />
+                    <geom size="0.025" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        type="sphere" />
+                    <geom pos="0.028 0 0" quat="-2.93388e-06 0.707108 2.26082e-06 0.707106"
+                        type="mesh" contype="0" conaffinity="0" group="1" density="0"
+                        mesh="LegAssemblyForFlangedv26.011" />
+                    <body name="leg_front_l_3" pos="0 -0.0494 0.0685"
+                        quat="9.38184e-07 -0.707108 9.38187e-07 0.707105" gravcomp="0">
+                        <inertial pos="0.03866 0.03585 0.01833"
+                            quat="0.653281 0.270598 -0.653281 0.270598" mass="0.05"
+                            diaginertia="7.7e-05 7.55e-05 5.5e-06" />
+                        <joint name="leg_front_l_3" pos="0 0 0" axis="0 0 1" range="-0.71 2.79" />
+                        <geom size="0.01995" pos="0.06231 0.06216 0.018" quat="1.32679e-06 0 0 1" />
+                        <geom pos="0.0685 -0.0494 -0.028"
+                            quat="1.76029e-12 1.32679e-06 1 1.32679e-06" type="mesh" contype="0"
+                            conaffinity="0" group="1" density="0"
+                            mesh="LegAssemblyForFlangedv26.012" />
+                        <site name="leg_front_l_3_foot_site" pos="0.06231 0.06216 0.018" />
+                    </body>
+                </body>
+            </body>
+            <body name="leg_back_r_1" pos="-0.075 -0.0725 0" quat="0.707105 0.707108 0 0"
+                gravcomp="0">
+                <inertial pos="0 0 0" mass="0.18" diaginertia="7.4e-05 5.8e-05 4.8e-05" />
+                <joint name="leg_back_r_1" pos="0 0 0" axis="0 0 1" range="-1.22 2.51" />
+                <geom pos="0 0 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0"
+                    conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.005" />
+                <body name="leg_back_r_2" pos="0 0 0"
+                    quat="0.707107 2.24089e-06 -0.707107 4.83018e-06" gravcomp="0">
+                    <inertial pos="0 -0.0334 0.05419" quat="0.903877 0.427791 0 0" mass="0.186"
+                        diaginertia="0.000113 9.74951e-05 4.65049e-05" />
+                    <joint name="leg_back_r_2" pos="0 0 0" axis="0 0 1" range="-0.42 3.14" />
+                    <geom size="0.025" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        type="sphere" />
+                    <geom pos="-0.028 0 0" quat="-2.93388e-06 0.707108 2.26082e-06 0.707106"
+                        type="mesh" contype="0" conaffinity="0" group="1" density="0"
+                        mesh="LegAssemblyForFlangedv26.006" />
+                    <body name="leg_back_r_3" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        gravcomp="0">
+                        <inertial pos="0.03866 -0.03585 0.01833"
+                            quat="0.270598 0.653281 -0.270598 0.653281" mass="0.05"
+                            diaginertia="7.7e-05 7.55e-05 5.5e-06" />
+                        <joint name="leg_back_r_3" pos="0 0 0" axis="0 0 1" range="-2.79 0.71" />
+                        <geom size="0.01995" pos="0.06231 -0.06216 0.018" quat="1.32679e-06 0 0 1" />
+                        <geom pos="0.0685 0.0494 -0.028" quat="1.32679e-06 0 0 1" type="mesh"
+                            contype="0" conaffinity="0" group="1" density="0"
+                            mesh="LegAssemblyForFlangedv26.007" />
+                        <site name="leg_back_r_3_foot_site" pos="0.06231 -0.06216 0.018" />
+                    </body>
+                </body>
+            </body>
+            <body name="leg_back_l_1" pos="-0.075 0.0725 0" quat="0.707105 -0.707108 0 0"
+                gravcomp="0">
+                <inertial pos="0 0 0" mass="0.18" diaginertia="7.4e-05 5.8e-05 4.8e-05" />
+                <joint name="leg_back_l_1" pos="0 0 0" axis="0 0 1" range="-2.51 1.22" />
+                <geom pos="0 0 -0.028" quat="1.32679e-06 0 0 1" type="mesh" contype="0"
+                    conaffinity="0" group="1" density="0" mesh="LegAssemblyForFlangedv26.013" />
+                <body name="leg_back_l_2" pos="0 0 0"
+                    quat="-3.89602e-06 0.707107 -1.29867e-06 -0.707107" gravcomp="0">
+                    <inertial pos="0 -0.0334 0.05419" quat="0.903877 0.427791 0 0" mass="0.186"
+                        diaginertia="0.000113 9.74951e-05 4.65049e-05" />
+                    <joint name="leg_back_l_2" pos="0 0 0" axis="0 0 1" range="-3.14 0.42" />
+                    <geom size="0.025" pos="0 -0.0494 0.0685" quat="0.707105 0 0.707108 0"
+                        type="sphere" />
+                    <geom pos="0.028 0 0" quat="-2.93388e-06 0.707108 2.26082e-06 0.707106"
+                        type="mesh" contype="0" conaffinity="0" group="1" density="0"
+                        mesh="LegAssemblyForFlangedv26.014" />
+                    <body name="leg_back_l_3" pos="0 -0.0494 0.0685"
+                        quat="9.38184e-07 -0.707108 9.38187e-07 0.707105" gravcomp="0">
+                        <inertial pos="0.03866 0.03585 0.01833"
+                            quat="0.653281 0.270598 -0.653281 0.270598" mass="0.05"
+                            diaginertia="7.7e-05 7.55e-05 5.5e-06" />
+                        <joint name="leg_back_l_3" pos="0 0 0" axis="0 0 1" range="-0.71 2.79" />
+                        <geom size="0.01995" pos="0.06231 0.06216 0.018" quat="1.32679e-06 0 0 1" />
+                        <geom pos="0.0685 -0.0494 -0.028"
+                            quat="1.76029e-12 1.32679e-06 1 1.32679e-06" type="mesh" contype="0"
+                            conaffinity="0" group="1" density="0"
+                            mesh="LegAssemblyForFlangedv26.015" />
+                        <site name="leg_back_l_3_foot_site" pos="0.06231 0.06216 0.018" />
+                    </body>
+                </body>
+            </body>
+            <site name="body_imu_site" pos="0.09 0 0.032" />
+        </body>
+        <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3" />
+        <geom name="floor_visual" size="0 0 .05" pos="0 0 -0.001" type="plane" material="grid"
+            condim="3" contype="0" conaffinity="0" group="1" />
+        <light name="spotlight" mode="targetbodycom" target="base_link" diffuse="0.9 0.9 0.9"
+            specular="0.3 0.3 0.3" pos="0 -4 4" cutoff="100" />
+        <camera name="tracking_cam" mode="targetbody" target="base_link" pos="0.5 -0.5 0.5" />
+        <geom name="box_geom_0" pos="-2.1795883512315006 1.7204152398195038 0"
+            quat="0.4584485511143536 0 0 -0.8887209494442841" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_1" pos="0.9590148624273187 1.8520685193621986 0"
+            quat="0.7985325249602184 0 0 0.6019516646547778" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_2" pos="0.8573641275692907 4.965637829780313 0"
+            quat="0.6552189993079167 0 0 0.7554389869115389" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_3" pos="-4.334507239932488 2.2585720091419805 0"
+            quat="0.6118779567294422 0 0 -0.7909521894960547" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_4" pos="-2.6725000423774548 -4.630742740145384 0"
+            quat="0.9540328119789362 0 0 0.29970217494633516" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_5" pos="1.7622253983592575 -3.7686080163212896 0"
+            quat="0.5542268957443302 0 0 -0.832365633621189" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_6" pos="0.19572162765029066 1.1848897906581541 0"
+            quat="0.4242505685584757 0 0 0.9055448388002717" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_7" pos="-3.1747886411876314 -2.225565011320173 0"
+            quat="0.9712762894668563 0 0 -0.2379545534750189" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_8" pos="-2.325853714428505 -2.2519984619587152 0"
+            quat="0.8673239060559607 0 0 -0.4977441531387699" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_9" pos="2.9830591819460937 -1.003871449566386 0"
+            quat="0.537227834761146 0 0 -0.8434371663365628" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_10" pos="-4.483692242876699 4.347159990821844 0"
+            quat="0.7460775709065771 0 0 0.6658590377776226" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_11" pos="2.7765167096118812 3.664205325526833 0"
+            quat="0.5883356824177878 0 0 -0.8086167972494733" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_12" pos="-0.9249187534157546 -1.1412354793523805 0"
+            quat="0.20419576114220286 0 0 0.9789300746894828" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_13" pos="-2.8482704683401416 2.187813778083001 0"
+            quat="0.8714702893474389 0 0 0.49044829980813603" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_14" pos="-0.9604687169585038 3.982490000050646 0"
+            quat="0.7575502483017863 0 0 0.6527768541376923" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_15" pos="4.832069529388477 -3.728201193720108 0"
+            quat="0.6395528158806241 0 0 -0.768747159799088" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_16" pos="-0.04473367476530932 -0.4091841477162559 0"
+            quat="0.2143288498451915 0 0 0.9767615595036679" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_17" pos="-1.4584993549759795 -1.5696114767060165 0"
+            quat="0.10056609186052236 0 0 -0.9949303800607865" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_18" pos="1.5462276613633623 -4.860407475850091 0"
+            quat="0.315982639384479 0 0 0.9487649717435916" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_19" pos="-1.5405934536282628 -1.765211192873207 0"
+            quat="0.9746436080782724 0 0 0.2237629040573232" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_20" pos="1.9076232527520842 2.37985640805004 0"
+            quat="0.21794246630181077 0 0 -0.9759616188059262" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_21" pos="-0.9748103980894385 2.8425338120330492 0"
+            quat="0.1563772735616411 0 0 -0.9876973971381253" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_22" pos="-0.6280362411975515 -3.1099163484824954 0"
+            quat="0.9749146817871235 0 0 0.22257889216165974" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_23" pos="3.179388308199613 -0.24548081817065714 0"
+            quat="0.9806868659056308 0 0 -0.19558443455498" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_24" pos="-2.5330635767465717 -2.2459209489550958 0"
+            quat="0.9002028725115127 0 0 0.4354707663230924" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_25" pos="-4.859541937595996 -4.403125283806519 0"
+            quat="0.9893343702890622 0 0 -0.14566229355857596" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_26" pos="1.5187416431590979 -2.8261024956771132 0"
+            quat="0.6262604663612711 0 0 0.7796138969213948" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_27" pos="0.8057844590169978 -3.1292700123297457 0"
+            quat="0.13124849184075607 0 0 -0.9913495011294085" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_28" pos="0.722216038775656 1.2340277241360829 0"
+            quat="0.5664443279767027 0 0 0.8241000080712423" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_29" pos="-3.1071996954643613 1.3383415299383872 0"
+            quat="0.08730697928082684 0 0 0.9961814550416291" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_30" pos="-0.5227894666566701 -3.3248533789053623 0"
+            quat="0.8439082729430679 0 0 -0.5364874899363902" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_31" pos="-0.5667942847715874 4.547307544905006 0"
+            quat="0.3628701531641208 0 0 -0.9318397136539349" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_32" pos="4.256849953701963 3.6875810130370272 0"
+            quat="0.8654355473709738 0 0 -0.5010202723909513" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_33" pos="-2.1391208412515383 -1.9574199908261427 0"
+            quat="0.6850210585242271 0 0 -0.7285232661887657" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_34" pos="3.380315465233444 -0.3626503926672058 0"
+            quat="0.3444611591524326 0 0 0.9388005697885801" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_35" pos="-3.2833020104980672 1.2687969414687057 0"
+            quat="0.9988895663583902 0 0 -0.047112994177266096" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_36" pos="-3.069939334488323 -1.7768911786992145 0"
+            quat="0.13737870045897546 0 0 0.9905185978366096" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_37" pos="4.062290799058006 -0.498739629080144 0"
+            quat="0.6698733831669623 0 0 -0.7424753534794593" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_38" pos="-3.2973931291658856 3.4971437730798254 0"
+            quat="0.8915121600547826 0 0 0.4529967643090352" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_39" pos="-4.699378770232391 1.2635323136972643 0"
+            quat="0.1705062514890185 0 0 -0.9853565944383604" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_40" pos="4.893180849574875 1.8959580635426274 0"
+            quat="0.8137677479441728 0 0 0.5811902032948156" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_41" pos="1.4966457630849161 3.4421525824003947 0"
+            quat="0.8398735632928604 0 0 -0.5427820904209659" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_42" pos="0.412067262220849 0.8191881311782439 0"
+            quat="0.47785930474323696 0 0 0.878436386353793" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_43" pos="0.5413297069333387 -4.0159567733870025 0"
+            quat="0.11216442603964512 0 0 0.9936896605737613" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_44" pos="0.4306953834002156 -4.278006348943656 0"
+            quat="0.292412679345577 0 0 0.9562922278037926" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_45" pos="-3.016920785255941 -4.851067014544248 0"
+            quat="0.09175201118838833 0 0 0.9957818879869657" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_46" pos="-2.1534478829249726 2.518702150114284 0"
+            quat="0.971185907845787 0 0 -0.23832316799202422" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_47" pos="4.634822524585326 -3.2758878092771972 0"
+            quat="0.09129926712382357 0 0 -0.9958235003366072" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_48" pos="1.305046240444545 0.2688550606502469 0"
+            quat="0.5913524262079668 0 0 0.8064132365096391" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_49" pos="3.4305790287597624 4.344447778282321 0"
+            quat="0.19613509247603922 0 0 0.9805768840327695" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_50" pos="2.8865590466641056 -0.8253201375911514 0"
+            quat="0.5563133583371473 0 0 0.8309725912060184" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_51" pos="-0.8266969558364581 -2.5319638545781586 0"
+            quat="0.8927524622859369 0 0 -0.4505474903740969" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_52" pos="4.739489682701906 4.777586646436818 0"
+            quat="0.738812956564007 0 0 -0.6739105394732677" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_53" pos="-2.4292251502779063 -1.5838933169309186 0"
+            quat="0.5936232661685591 0 0 0.8047430756852599" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_54" pos="-1.44597045041152 1.1194244037955237 0"
+            quat="0.7738688120427732 0 0 -0.6333459258158269" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_55" pos="1.192719455264104 -3.276671674236705 0"
+            quat="0.7157269815482321 0 0 0.6983801886392945" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_56" pos="-1.2880677538627614 0.8235555568445907 0"
+            quat="0.9649976086466011 0 0 -0.2622586801353604" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_57" pos="2.1169397850315166 -1.496715586055731 0"
+            quat="0.19493844595190646 0 0 -0.9808154782067092" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_58" pos="-1.9884680364454521 3.8828813306684076 0"
+            quat="0.2525401767005575 0 0 0.9675864091397993" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_59" pos="-2.7494184203055827 -1.3492550298416628 0"
+            quat="0.9912333833160861 0 0 -0.13212259382764607" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_60" pos="-4.958363092888377 -2.417903163211127 0"
+            quat="0.7426349033767939 0 0 0.6696964986369124" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_61" pos="-0.6851678282636424 -0.4999184070547038 0"
+            quat="0.899236814287157 0 0 -0.43746217188539294" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_62" pos="2.421810045612726 -1.9742814543688736 0"
+            quat="0.7225952846085291 0 0 -0.69127133215657" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_63" pos="-3.8880247461573783 0.8959353890570174 0"
+            quat="0.1920601609928806 0 0 -0.9813831537984483" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_64" pos="1.4502917046470447 -3.1488168963166885 0"
+            quat="0.8049865808339487 0 0 -0.5932930175531047" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_65" pos="1.6427854138333045 0.8167806141729015 0"
+            quat="0.8619943677639961 0 0 0.5069178532495662" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_66" pos="4.208004717258927 1.1600252333539665 0"
+            quat="0.931431901126645 0 0 -0.3639156682029559" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_67" pos="-0.8774067132449828 -0.11938257265191066 0"
+            quat="0.9867436776116578 0 0 0.162286520368824" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_68" pos="-3.8331752063484856 2.134261415947565 0"
+            quat="0.9491296253408175 0 0 -0.31488562098069756" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_69" pos="-2.104409054844022 -4.387858995637817 0"
+            quat="0.9635887591562863 0 0 -0.267388674456583" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_70" pos="3.7868519561629483 -0.8241656463861533 0"
+            quat="0.21732874824963577 0 0 0.9760984659265921" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_71" pos="-4.595261123281849 -1.901367570279345 0"
+            quat="0.8556409837782766 0 0 0.517569808701148" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_72" pos="-0.7329738013590177 -0.366153143792606 0"
+            quat="0.2182063904727612 0 0 -0.9759026443026214" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_73" pos="2.4050826420336477 3.862430123935683 0"
+            quat="0.2431520886475683 0 0 0.9699881761064539" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_74" pos="-0.17647491612944233 -0.678453531987568 0"
+            quat="0.9261413890694253 0 0 -0.3771765202826859" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_75" pos="1.6805358261810888 3.8397073018836014 0"
+            quat="0.9259020826446709 0 0 -0.3777635945326933" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_76" pos="0.26455425996719306 2.962547918425691 0"
+            quat="0.7123473571764101 0 0 0.7018270746585544" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_77" pos="2.7268758515867226 -3.5500239610476925 0"
+            quat="0.5979520189270706 0 0 0.8015318977190117" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_78" pos="0.427031843913781 -2.5985729103207578 0"
+            quat="0.907956035785296 0 0 -0.4190654329350611" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_79" pos="0.039374482898950625 3.7369409792118518 0"
+            quat="0.9042662435191928 0 0 -0.42696903966410465" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_80" pos="4.827225065664759 1.9248541511352428 0"
+            quat="0.7202591110466536 0 0 -0.6937051340117675" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_81" pos="-3.414419025594506 4.9170789552734355 0"
+            quat="0.6837200073329529 0 0 -0.7297444426459353" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_82" pos="-3.129854877515452 -2.284531374128144 0"
+            quat="0.35717192066228026 0 0 -0.9340386603831866" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_83" pos="-0.702951026000953 -1.236139091445411 0"
+            quat="0.03745659909772342 0 0 -0.9992982553692529" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_84" pos="3.033729625513068 3.9705402779138748 0"
+            quat="0.12248336407021194 0 0 -0.9924705665792029" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_85" pos="1.145349898077991 2.5056327641853393 0"
+            quat="0.4402615650028507 0 0 0.8978695642359422" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_86" pos="0.6843129266280714 -4.594407074344799 0"
+            quat="0.5276760027595332 0 0 0.8494457228756415" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_87" pos="3.757639462217808 3.5796492609939428 0"
+            quat="0.9739215911272194 0 0 0.22688484818564936" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_88" pos="-0.023848993182799205 3.1675307882515877 0"
+            quat="0.6052283944339801 0 0 -0.7960518768088337" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_89" pos="-2.554057893979148 1.722438744529038 0"
+            quat="0.3813924121139308 0 0 -0.9244132344259884" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_90" pos="2.6018338643271752 0.03813586214741527 0"
+            quat="0.9703801954744296 0 0 -0.24158285583006056" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_91" pos="0.26009265437119744 1.9273786500268342 0"
+            quat="0.6395642325743607 0 0 0.768737661632087" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_92" pos="-2.5135686770564614 -3.0802268935909947 0"
+            quat="0.9447498716480975 0 0 -0.3277921292845561" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_93" pos="-1.0897762153142998 -0.9887027446780987 0"
+            quat="0.7408787772078069 0 0 -0.6716387700863202" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_94" pos="-4.405403575843892 -3.2889860957260164 0"
+            quat="0.9521850204579674 0 0 0.3055219907231889" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_95" pos="0.3790750935853149 3.7585064572836266 0"
+            quat="0.993277148934054 0 0 -0.11576055202631387" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_96" pos="-4.9209168806064385 -0.22276920775559894 0"
+            quat="0.7973242447926044 0 0 0.6035511980486021" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_97" pos="-1.47807317845602 -2.415112303034601 0"
+            quat="0.8447453843292815 0 0 0.5351684180277967" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_98" pos="-2.373716410646879 1.614922543653715 0"
+            quat="0.3007782459345974 0 0 -0.9536941054512746" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+        <geom name="box_geom_99" pos="-3.239513783636525 0.7412679837124001 0"
+            quat="0.9630632004949596 0 0 0.26927545720396645" type="box" size="0.01 3.0 0.02"
+            rgba="0.1 0.5 0.8 1" conaffinity="1" contype="1" condim="3" group="0" />
+    </worldbody>
+</mujoco>
