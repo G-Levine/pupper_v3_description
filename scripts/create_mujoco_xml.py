@@ -25,7 +25,6 @@ def compose_robot_xml(
     timestep: float = 0.004,
     max_contact_points: int = 5,
     max_geom_pairs: int = 4,
-    eulerdamp: bool = False,
     file_includes: List[str] = [],
 ):
     # Parse the URDF file
@@ -160,6 +159,7 @@ def compose_robot_xml(
         option.set("ls_iterations", str(ls_iterations))
         option.set("impratio", str(impratio))
         option.set("timestep", str(timestep))
+        ET.SubElement(option, "flag", eulerdamp="disable")
 
         custom = ET.SubElement(root, "custom")
         ET.SubElement(custom, "numeric", data=str(max_contact_points), name="max_contact_points")
