@@ -43,8 +43,8 @@
             biasprm="0 -5.0 -0.1" />
 
 
-        <!-- visual geom will go to group 2 -->
-        <geom condim="2" contype="0" conaffinity="0" />
+        <!-- visual geom will go to group 4 -->
+        <geom condim="3" contype="0" conaffinity="0" group="4" />
 
         <!-- collision geom in group 3 -->
         <default class="collision">
