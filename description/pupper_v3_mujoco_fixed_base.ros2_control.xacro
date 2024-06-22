@@ -5,7 +5,7 @@
         <ros2_control name="mujoco_hardware_interface" type="system">
             <hardware>
                 <plugin>mujoco_hardware_interface/MujocoHardwareInterface</plugin>
-                <param name="fixed_base">0</param>
+                <param name="fixed_base">1</param>
                 <param name="timestep">0.0001</param>
                 <param name="bus_voltage">24.0</param>
                 <param name="kt">0.04</param>
