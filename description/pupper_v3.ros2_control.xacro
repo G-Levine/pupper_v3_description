@@ -5,6 +5,7 @@
         <ros2_control name="control_board_hardware_interface" type="system">
             <hardware>
                 <plugin>control_board_hardware_interface/ControlBoardHardwareInterface</plugin>
+                <!-- <param name="use_imu">false</param> -->
             </hardware>
             <xacro:define_components />
         </ros2_control>
