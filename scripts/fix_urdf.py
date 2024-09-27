@@ -19,12 +19,13 @@ def fix_mesh_paths(urdf_file_path, output_file_path):
                 .replace(" ", "")
                 .replace("dae", "stl")
             )
+            new_filename = new_filename.rsplit(".", 1)
+            new_filename[0] = new_filename[0].replace(".", "_")
+            new_filename = ".".join(new_filename)
             mesh.set("filename", new_filename)
 
     # Add world body and joint between world and body
-    world_to_robot_joint = ET.SubElement(
-        root, "joint", name="world_to_body", type="floating"
-    )
+    world_to_robot_joint = ET.SubElement(root, "joint", name="world_to_body", type="floating")
     ET.SubElement(world_to_robot_joint, "parent", link="world")
     ET.SubElement(world_to_robot_joint, "child", link="base_link")
     world = ET.SubElement(root, "link", name="world")
