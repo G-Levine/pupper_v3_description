@@ -53,7 +53,7 @@
 
         <joint armature="0.0016" type="hinge" damping="0.01" limited="true" />
     </default>
-    <option cone="pyramidal" impratio="10" iterations="1" ls_iterations="5" timestep="0.004">
+    <option cond="elliptic" impratio="10" iterations="1" ls_iterations="5" timestep="0.004">
         <flag eulerdamp="disable" />
     </option>
     <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />

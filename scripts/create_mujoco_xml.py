@@ -152,9 +152,8 @@ def compose_robot_xml(
         default_geom = default_section.find("geom")
         default_geom.set("condim", "3")
 
-        # change friction from elliptical to pyramidal
+        # set mjx specific options
         option = root.find(".//option")
-        option.set("cone", "pyramidal")
         option.set("iterations", str(iterations))
         option.set("ls_iterations", str(ls_iterations))
         option.set("impratio", str(impratio))
