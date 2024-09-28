@@ -1,5 +1,5 @@
 <mujoco model="settings">
-    <option cone="elliptic" impratio="100" />
+    <option cone="elliptic" impratio="40" />
     <default>
         <general forcerange="-3 3" forcelimited="true" biastype="affine" gainprm="1 0 0"
             biasprm="0 0 0" />

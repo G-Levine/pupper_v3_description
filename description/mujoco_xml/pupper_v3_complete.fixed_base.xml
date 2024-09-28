@@ -52,7 +52,7 @@
 
         <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.01" limited="true" />
     </default>
-    <option cone="elliptic" impratio="100" />
+    <option cone="elliptic" impratio="40" />
     <compiler angle="radian" meshdir="../meshes/stl/" autolimits="true" />
     <asset>
         <mesh name="BodyV4v70_001" file="BodyV4v70_001.stl" />
