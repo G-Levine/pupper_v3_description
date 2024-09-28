@@ -21,7 +21,7 @@ def compose_robot_xml(
     position_control_kd: float = 0.0,
     iterations: int = 1,
     ls_iterations: int = 5,
-    impratio: float = 10,
+    impratio: float = 100,
     timestep: float = 0.004,
     max_contact_points: int = 5,
     max_geom_pairs: int = 4,
