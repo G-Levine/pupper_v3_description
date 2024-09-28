@@ -160,6 +160,12 @@ def compose_robot_xml(
         option.set("timestep", str(timestep))
         ET.SubElement(option, "flag", eulerdamp="disable")
 
+        # delete imu acceleration since not supported with elliptical friction cones
+        sensor = root.find("sensor")
+        accelerometer = sensor.find("accelerometer")
+        if accelerometer is not None:
+            sensor.remove(accelerometer)
+
         custom = ET.SubElement(root, "custom")
         ET.SubElement(custom, "numeric", data=str(max_contact_points), name="max_contact_points")
         ET.SubElement(custom, "numeric", data=str(max_geom_pairs), name="max_geom_pairs")
