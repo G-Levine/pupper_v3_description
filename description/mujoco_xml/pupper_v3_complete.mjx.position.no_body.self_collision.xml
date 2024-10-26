@@ -52,7 +52,7 @@
                 friction="0.8 0.02 0.01" />
         </default>
 
-        <joint armature="0.0016" type="hinge" damping="0.01" limited="true" />
+        <joint armature="0.0016" type="hinge" damping="0.01" frictionloss="0.125" limited="true" />
     </default>
     <option cone="pyramidal" impratio="10" iterations="1" ls_iterations="5" timestep="0.004">
         <flag eulerdamp="disable" />
