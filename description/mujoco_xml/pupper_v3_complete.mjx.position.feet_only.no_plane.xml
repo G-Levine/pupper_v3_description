@@ -83,7 +83,7 @@
         <body name="base_link" pos="0 0 0.13" gravcomp="0">
             <inertial pos="0.025 0 0.015" quat="0 0.677807 0 0.73524" mass="1.506"
                 diaginertia="0.00854071 0.0085 0.00235929" />
-            <joint name="world_to_body" type="free" />
+            <freejoint name="world_to_body" />
             <!-- <geom size="0.04507 0.06379 0.129715" pos="0.02146 0 0.03345"
                 quat="0.499998 -0.5 -0.500002 0.5" type="box" class="collision" /> -->
             <geom quat="0.499998 -0.5 -0.500002 0.5" type="mesh" contype="0" conaffinity="0"
