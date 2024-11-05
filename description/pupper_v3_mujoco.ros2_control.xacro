@@ -13,9 +13,16 @@
                 <param name="saturation_torque">4.5</param>
                 <param name="software_torque_limit">3.0</param>
                 <!-- <param name="use_imu">false</param> -->
+
+                <!-- uncomment this block to simulate backlash and latency -->
                 <param name="backlash">true</param>
-                <param name="imu_latency_timesteps">10</param>
+                <param name="imu_latency_timesteps">40</param>
                 <param name="command_latency_timesteps">8</param>
+
+                <!-- uncomment this block to use no backlash or latency -->
+                <!-- <param name="backlash">false</param>
+                <param name="imu_latency_timesteps">0</param>
+                <param name="command_latency_timesteps">0</param> -->
             </hardware>
             <xacro:define_components />
         </ros2_control>
