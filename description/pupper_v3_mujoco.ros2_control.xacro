@@ -16,7 +16,7 @@
 
                 <!-- uncomment this block to simulate backlash and latency -->
                 <param name="backlash">true</param>
-                <param name="imu_latency_timesteps">40</param>
+                <param name="imu_latency_timesteps">10</param>
                 <param name="command_latency_timesteps">8</param>
 
                 <!-- uncomment this block to use no backlash or latency -->
