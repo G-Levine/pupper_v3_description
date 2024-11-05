@@ -11,7 +11,11 @@
                 <param name="kt">0.04</param>
                 <param name="phase_resistance">0.7</param>
                 <param name="saturation_torque">4.5</param>
-                <param name="software_torque_limit">4.0</param>
+                <param name="software_torque_limit">3.0</param>
+                <!-- <param name="use_imu">false</param> -->
+                <param name="backlash">true</param>
+                <param name="imu_latency_timesteps">10</param>
+                <param name="command_latency_timesteps">8</param>
             </hardware>
             <xacro:define_components />
         </ros2_control>
